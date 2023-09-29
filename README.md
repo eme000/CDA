@@ -15,5 +15,3 @@ password : 	ft-IOTpi2
 
 TXT controleur:
 192.168.0.10
-
-1
