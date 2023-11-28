@@ -12,6 +12,7 @@ def index():
 @app.route('/oui')
 def oui():
     strResult = 'non'
+    return render_template ('home.html')
     return strResult
 
 
