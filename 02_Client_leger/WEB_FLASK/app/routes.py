@@ -9,10 +9,9 @@ def index():
     return strResult
 
 
-@app.route('/oui')
-def oui():
-    strResult = 'non'
-    return render_template ('home.html')
+@app.route('/list')
+def list():
+    return render_template ('list_bdd.html')
     return strResult
 
 
