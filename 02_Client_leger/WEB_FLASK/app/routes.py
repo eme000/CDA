@@ -3,7 +3,7 @@ from flask import render_template
 
 
 @app.route('/') # decorators
-def index():
+def home():
     return render_template ('home.html')
     return strResult
 
