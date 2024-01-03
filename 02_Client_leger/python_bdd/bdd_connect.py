@@ -1,10 +1,15 @@
+import os
 import mysql.connector
+from dotenv import load_dotenv
 
-# Paramètres de connexion à la base de données
-host = '0.0.0.0'
-user = 'root'
-password = 'uimm'
-database = 'db_test'
+# Charger les variables d'environnement depuis le fichier .env
+load_dotenv()
+
+# Récupérer les informations de connexion depuis les variables d'environnement
+host = os.getenv('DB_HOST')
+user = os.getenv('DB_USER')
+password = os.getenv('DB_PASSWORD')
+database = os.getenv('DB_DATABASE')
 
 # Connexion à la base de données
 conn = mysql.connector.connect(

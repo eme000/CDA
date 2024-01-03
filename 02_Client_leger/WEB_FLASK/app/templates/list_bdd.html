@@ -7,6 +7,10 @@
     <body>
         <h1 style="text-align:center;">Liste des table dans la base de donnée</h1>
         <a href="https://www.formation-industrie.bzh">Ceci est un lien</a>
-
+        <ul>
+            {% for field in liste %}
+            <li>{{ field }}</li>
+            {% endfor %}
+            </ul>
     </body>
 </html>

@@ -10,7 +10,7 @@ def home():
 
 @app.route('/list')
 def list():
-    return render_template ('list_bdd.html')
+    return render_template ('list_bdd.html',)
     return strResult
 
 
