@@ -5,7 +5,7 @@ from flask import render_template
 @app.route('/') # decorators
 @app.route('/index')
 def index():
-    strResult = 'Bruz!'
+    return render_template ('home.html')
     return strResult
 
 
