@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ma Page</title>
@@ -21,6 +22,7 @@
             justify-content: center;
             align-items: center;
             height: 80vh;
+            flex-wrap: wrap; /* Permettre le retour à la ligne des colonnes */
         }
         .column {
             margin: 10px;
@@ -48,7 +50,7 @@
 
     <section>
         <div class="column">
-            <a href="http://0.0.0.0/list" title="mini_factory n°1">
+            <a href="http://127.0.0.1:5000/mini_factory__1_" title="mini_factory n°1">
                 <p>mini_factory n°1</p>
                 <img src="{{url_for('static', filename='mini_facytory_logo.png')}}" alt="mini_factory n°1">
             </a>
@@ -57,6 +59,18 @@
             <a href="http://0.0.0.0/list" title="mini_factory n°2">
                 <p>mini_factory n°2</p>
                 <img src="{{url_for('static', filename='mini_facytory_logo.png')}}" alt="mini_factory n°2">
+            </a>
+        </div>
+        <div class="column">
+            <a href="http://0.0.0.0/list" title="mini_factory n°3">
+                <p>mini_factory n°3</p>
+                <img src="{{url_for('static', filename='mini_facytory_logo.png')}}" alt="mini_factory n°3">
+            </a>
+        </div>
+        <div class="column">
+            <a href="http://0.0.0.0/list" title="mini_factory n°4">
+                <p>mini_factory n°4</p>
+                <img src="{{url_for('static', filename='mini_facytory_logo.png')}}" alt="mini_factory n°4">
             </a>
         </div>
     </section>
