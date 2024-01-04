@@ -5,12 +5,12 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
     </head>
     <body>
-        <h1 style="text-align:center;">Liste des table dans la base de donnée</h1>
+        <h1 style="text-align:center;">Liste des tables dans la base de données</h1>
         <a href="https://www.formation-industrie.bzh">Ceci est un lien</a>
         <ul>
-            {% for field in liste %}
-            <li>{{ field }}</li>
+            {% for table_name in liste %}
+            <li>{{ table_name }}</li>
             {% endfor %}
-            </ul>
+        </ul>
     </body>
 </html>
