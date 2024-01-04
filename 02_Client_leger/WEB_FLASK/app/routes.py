@@ -16,6 +16,8 @@ def mini_factory_1_production():
     return render_template('mini_factory_1_production.html')
 
 
+
+
 @app.route('/list_table')
 def list_table():
     return render_template('list_bdd.html')
