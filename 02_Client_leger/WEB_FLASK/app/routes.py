@@ -7,6 +7,11 @@ def home():
     return render_template ('home.html')
     return strResult
 
+@app.route('/mini_factory_1')
+def list():
+    return render_template ('mini_factory_1.html',)
+    return strResult
+
 
 @app.route('/list')
 def list():

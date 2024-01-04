@@ -26,12 +26,16 @@
             margin: 10px;
             text-align: center; /* Centrer le texte */
         }
+        .column a {
+            text-decoration: none; /* Supprimer le soulignement du lien */
+        }
         .column img {
             width: 300px;
             height: 250px;
             border: 1px solid #ddd;
             border-radius: 4px;
             padding: 5px;
+            cursor: pointer; /* Ajouter le curseur pointer pour indiquer que c'est un lien cliquable */
         }
     </style>
 </head>
@@ -44,12 +48,16 @@
 
     <section>
         <div class="column">
-            <p>Image 1</p>
-            <img src="{{url_for('static', filename='mini_facytory_logo.png')}}" alt="mini_factory n°1">
+            <a href="http://0.0.0.0/list" title="mini_factory n°1">
+                <p>mini_factory n°1</p>
+                <img src="{{url_for('static', filename='mini_facytory_logo.png')}}" alt="mini_factory n°1">
+            </a>
         </div>
         <div class="column">
-            <p>Image 2</p>
-            <img src="{{url_for('static', filename='mini_facytory_logo.png')}}" alt="mini_factory n°2">
+            <a href="http://0.0.0.0/list" title="mini_factory n°2">
+                <p>mini_factory n°2</p>
+                <img src="{{url_for('static', filename='mini_facytory_logo.png')}}" alt="mini_factory n°2">
+            </a>
         </div>
     </section>
 
