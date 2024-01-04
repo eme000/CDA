@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Deuxième Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #f2f2f2;
+            padding: 10px;
+            text-align: left;
+        }
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .info-block {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 10px;
+            padding: 15px;
+            width: 300px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .info-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+        .info-row img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <button onclick="goHome()">Home</button>
+        <button onclick="goLogin()">Login</button>
+    </header>
+
+    <section>
+        <div class="info-block" onclick="goInfoPage()">
+            <h2>Titre 1</h2>
+            <div class="info-row">
+                <img src="info-icon.png" alt="Icon">
+                <p>Ligne 1</p>
+                <span>45</span>
+            </div>
+            <div class="info-row">
+                <img src="info-icon.png" alt="Icon">
+                <p>Ligne 2</p>
+                <span>45</span>
+            </div>
+            <div class="info-row">
+                <img src="info-icon.png" alt="Icon">
+                <p>Ligne 3</p>
+                <span>45</span>
+            </div>
+            <div class="info-row">
+                <img src="info-icon.png" alt="Icon">
+                <p>Ligne 4</p>
+                <span>45</span>
+            </div>
+        </div>
+
+        <!-- Reproduire le bloc ci-dessus pour les autres blocs d'informations -->
+
+    </section>
+
+    <script>
+        function goHome() {
+            // Rediriger vers l'IP principale (0.0.0.0)
+            window.location.href = "http://0.0.0.0";
+        }
+
+        function goLogin() {
+            // Ajouter le code de redirection vers la page de login ici
+            alert("Fonctionnalité de login à implémenter.");
+        }
+
+        function goInfoPage() {
+            // Rediriger vers la page d'informations avec l'IP 0.0.0.0
+            window.location.href = "http://0.0.0.0/info-page";
+        }
+    </script>
+
+</body>
+</html>
