@@ -53,25 +53,30 @@
 
     <section>
         <div class="info-block" onclick="goInfoPage('http://0.0.0.0/info1')">
-            <h2>Titre 1</h2>
+            <h2>Capteurs environement</h2>
             <div class="info-row">
-                <img src="info-icon.png" alt="Icon">
-                <p>Ligne 1</p>
+                <img src="{{url_for('static', filename='icone_temperature.png')}}" alt="Icon_temp">
+                <p>Températures air</p>
                 <span>45</span>
             </div>
             <div class="info-row">
-                <img src="info-icon.png" alt="Icon">
-                <p>Ligne 2</p>
+                <img src="{{url_for('static', filename='icone_co2.png')}}" alt="Icon_cO0">
+                <p>Taux CO2 dans l’air</p>
                 <span>45</span>
             </div>
             <div class="info-row">
-                <img src="info-icon.png" alt="Icon">
-                <p>Ligne 3</p>
+                <img src="{{url_for('static', filename='icone_humidite.png')}}" alt="Icon_humidite">
+                <p>Taux humidité dans l’air</p>
                 <span>45</span>
             </div>
             <div class="info-row">
-                <img src="info-icon.png" alt="Icon">
-                <p>Ligne 4</p>
+                <img src="{{url_for('static', filename='icone_luminosite.png')}}" alt="Icon_luminosite">
+                <p>Luminosité</p>
+                <span>45</span>
+            </div>
+            <div class="info-row">
+                <img src="{{url_for('static', filename='icone_ath.png')}}" alt="Icon_ath">
+                <p>Pression Ath</p>
                 <span>45</span>
             </div>
         </div>

@@ -11,7 +11,7 @@ def home():
 def mini_factory():
     return render_template('mini_factory_1.html')
 
-@app.route('/mini_factory__1_production')
+@app.route('/mini_factory__1_/mini_factory__1_production')
 def mini_factory_1_production():
     return render_template('mini_factory_1_production.html')
 
