@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -117,25 +117,21 @@
         <div class="info-block" onclick="goInfoPage('http://0.0.0.0/info4')">
             <h2>Gestion d'erreur</h2>
             <div class="info-row">
-                <img src="info-icon.png" alt="Icon">
-                <p>Ligne 1</p>
-                <span>45</span>
+                <img src="{{url_for('static', filename='date.png')}}" alt="date">
+                <p>Date de l'erreur</p>
+                <span>05/01/2024:09:17</span>
             </div>
             <div class="info-row">
-                <img src="info-icon.png" alt="Icon">
-                <p>Ligne 2</p>
-                <span>45</span>
+                <img src="{{url_for('static', filename='erreur.png')}}" alt="Icon">
+                <p>Code erreur</p>
+                <span>12</span>
             </div>
             <div class="info-row">
-                <img src="info-icon.png" alt="Icon">
-                <p>Ligne 3</p>
-                <span>45</span>
+                <img src="{{url_for('static', filename='rond_rouge.png')}}" alt="rouge">
+                <p>erreur sur le produit</p>
+                <span>1</span>
             </div>
-            <div class="info-row">
-                <img src="info-icon.png" alt="Icon">
-                <p>Ligne 4</p>
-                <span>45</span>
-            </div>
+
         </div>
 
         <!-- Ajouter davantage de blocs d'informations si nécessaire -->
@@ -145,7 +141,7 @@
     <script>
         function goHome() {
             // Rediriger vers l'IP principale (0.0.0.0)
-            window.location.href = "http://0.0.0.0";
+            window.location.href = "http://127.0.0.1:5000";
         }
 
         function goLogin() {
