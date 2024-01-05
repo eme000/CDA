@@ -82,26 +82,21 @@
         </div>
 
         <div class="info-block" onclick="goInfoPage('http://0.0.0.0/info2')">
-            <h2>Titre 2</h2>
+            <h2>Gestion du stock</h2>
             <div class="info-row">
-                <img src="info-icon.png" alt="Icon">
-                <p>Ligne 1</p>
-                <span>45</span>
+                <img src="{{url_for('static', filename='rond_blanc.png')}}" alt="blanc">
+                <p>rond blanc</p>
+                <span>2</span>
             </div>
             <div class="info-row">
-                <img src="info-icon.png" alt="Icon">
-                <p>Ligne 2</p>
-                <span>45</span>
+                <img src="{{url_for('static', filename='rond_bleu.png')}}" alt="bleu">
+                <p>rond bleu</p>
+                <span>0</span>
             </div>
             <div class="info-row">
-                <img src="info-icon.png" alt="Icon">
-                <p>Ligne 3</p>
-                <span>45</span>
-            </div>
-            <div class="info-row">
-                <img src="info-icon.png" alt="Icon">
-                <p>Ligne 4</p>
-                <span>45</span>
+                <img src="{{url_for('static', filename='rond_rouge.png')}}" alt="rouge">
+                <p>rond rouge</p>
+                <span>1</span>
             </div>
         </div>
 
