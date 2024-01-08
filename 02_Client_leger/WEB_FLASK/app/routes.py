@@ -1,6 +1,7 @@
 # routes.py
-
-from app import app, conn  # Ajoutez conn pour la connexion à la base de données
+# Ajoutez conn pour la connexion à la base de données
+#from app import conn
+from app import app
 from flask import render_template
 
 @app.route('/')
@@ -13,14 +14,30 @@ def mini_factory():
 
 @app.route('/mini_factory__1_/mini_factory__1_production')
 def mini_factory_1_production():
-    # Récupérer la dernière valeur de VALEUR_RELEVE de TEMP_AIR depuis la base de données
-    query = "SELECT VALEUR_RELEVE FROM TEMP_AIR ORDER BY DATE_RELEVE DESC LIMIT 1"
-    cursor = conn.cursor()
-    cursor.execute(query)
-    last_temperature = cursor.fetchone()[0]
-    cursor.close()
+    # Importez conn ici pour éviter l'importation circulaire
+    from app import conn
 
+    # Utilisez votre logique pour récupérer la dernière valeur de température depuis la base de données
+    last_temperature = get_last_temperature(conn)
+
+    # Passez cette valeur à la page HTML
     return render_template('mini_factory_1_production.html', last_temperature=last_temperature)
+
+# Ajoutez cette fonction pour récupérer la dernière valeur de température
+def get_last_temperature(conn):
+    # Utilisez votre logique pour récupérer la dernière valeur de température depuis la base de données
+    query = "SELECT VALEUR_RELEVE FROM LUMINOSITE ORDER BY DATE_RELEVE DESC LIMIT 1"
+    
+    # Exécutez la requête et récupérez la valeur de température
+    result = conn.execute(query).fetchone()
+
+    # Vérifiez si la valeur existe
+    if result:
+        last_temperature = result[0]
+    else:
+        last_temperature = None
+
+    return last_temperature
 
 @app.route('/list_table')
 def list_table():

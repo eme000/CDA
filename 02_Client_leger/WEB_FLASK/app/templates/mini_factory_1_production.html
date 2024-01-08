@@ -54,11 +54,14 @@
     <section>
         <div class="info-block" onclick="goInfoPage('http://0.0.0.0/info1')">
             <h2>Capteurs environnement</h2>
+
             <div class="info-row">
                 <img src="{{url_for('static', filename='icone_temperature.png')}}" alt="Icon_temp">
                 <p>Températures air</p>
+                <!-- Affichez la dernière valeur de température -->
                 <span>{{ last_temperature }}</span>
             </div>
+            
             <div class="info-row">
                 <img src="{{url_for('static', filename='icone_co2.png')}}" alt="Icon_cO0">
                 <p>Taux CO2 dans l’air</p>
