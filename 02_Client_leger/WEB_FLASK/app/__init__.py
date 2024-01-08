@@ -1,9 +1,8 @@
 from flask import Flask
 app = Flask(__name__)
 
-from app import temp
-inter = temp.interface()
-
+from app import inter_bdd
+inter = inter_bdd.interface()
 from app import routes
 
 
