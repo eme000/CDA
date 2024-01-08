@@ -1,6 +1,6 @@
 # routes.py
 
-from app import app
+from app import app, conn  # Ajoutez conn pour la connexion à la base de données
 from flask import render_template
 
 @app.route('/')
@@ -13,10 +13,14 @@ def mini_factory():
 
 @app.route('/mini_factory__1_/mini_factory__1_production')
 def mini_factory_1_production():
-    return render_template('mini_factory_1_production.html')
+    # Récupérer la dernière valeur de VALEUR_RELEVE de TEMP_AIR depuis la base de données
+    query = "SELECT VALEUR_RELEVE FROM TEMP_AIR ORDER BY DATE_RELEVE DESC LIMIT 1"
+    cursor = conn.cursor()
+    cursor.execute(query)
+    last_temperature = cursor.fetchone()[0]
+    cursor.close()
 
-
-
+    return render_template('mini_factory_1_production.html', last_temperature=last_temperature)
 
 @app.route('/list_table')
 def list_table():

@@ -53,11 +53,11 @@
 
     <section>
         <div class="info-block" onclick="goInfoPage('http://0.0.0.0/info1')">
-            <h2>Capteurs environement</h2>
+            <h2>Capteurs environnement</h2>
             <div class="info-row">
                 <img src="{{url_for('static', filename='icone_temperature.png')}}" alt="Icon_temp">
                 <p>Températures air</p>
-                <span>45</span>
+                <span>{{ last_temperature }}</span>
             </div>
             <div class="info-row">
                 <img src="{{url_for('static', filename='icone_co2.png')}}" alt="Icon_cO0">
@@ -114,7 +114,6 @@
             </div>
         </div>
 
-
         <div class="info-block" onclick="goInfoPage('http://0.0.0.0/info4')">
             <h2>Gestion d'erreur</h2>
             <div class="info-row">
@@ -132,7 +131,6 @@
                 <p>erreur sur le produit</p>
                 <span>1</span>
             </div>
-
         </div>
 
         <!-- Ajouter davantage de blocs d'informations si nécessaire -->
