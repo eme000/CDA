@@ -33,7 +33,7 @@ def info_capteur_env_1():
 
 @app.route('/mini_factory__1_/mini_factory__1_production/Gestion_stock')
 def gestion_stock_1():
-    return render_template('gestion_stock.html')
+    return render_template('gestion_stock.html',bdd_1_emplcement_1_couleur=inter.getStock("1"))
 
 @app.route('/list_table')
 def list_table():

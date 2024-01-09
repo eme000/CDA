@@ -69,7 +69,17 @@
                 <tr>
                     <td>
                         <p>Emplacement 1</p>
-                        <img src="icone1.png" alt="Icone 1">
+                        {% if bdd_1_emplcement_1_couleur == 1 %}
+                            <img src="{{url_for('static', filename='rond_bleu.png')}}" alt="bleu">
+                        {% elif bdd_1_emplcement_1_couleur == 2 %}
+                            <img src="{{url_for('static', filename='rond_rouge.png')}}" alt="rouge">
+                        {% elif bdd_1_emplcement_1_couleur == 3 %}
+                            <img src="{{url_for('static', filename='rond_blanc.png')}}" alt="blanc">
+                        {% elif bdd_1_emplcement_1_couleur == 99 %}
+                            <img src="{{url_for('static', filename='vide.png')}}" alt="vide">
+                        {% else %}
+                            <p>BUG</p>
+                        {% endif %}
                     </td>
                     <td>
                         <p>Emplacement 2</p>

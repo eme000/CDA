@@ -22,24 +22,23 @@ conn = mysql.connector.connect(
 # Création d'un curseur
 curseur_temp = conn.cursor()
 
-requette = "SELECT `VALEUR_RELEVE` FROM `TEMP_AIR` ORDER BY `ID_RELEVE` DESC LIMIT 10"
+requette = "SELECT Couleur FROM GESTION_STOCK WHERE emplacement = '1';"
 
 # Exécutez la requête
 curseur_temp.execute(requette)
 
 
-list_sortie=[0,0,0,0,0,0,0,0,0,0,0]
 # Affichez les résultats
 I=0
+row =[99]
 for row in curseur_temp:
     print(row[0])
-    list_sortie[I]=row[0]
+
     I=I+1
 print(" ")
 print(row[0])
 print(" ")
-print (list_sortie)
-print (list_sortie[1])
+
 
 # Fermez le curseur et la connexion
 curseur_temp.close()

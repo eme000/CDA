@@ -70,3 +70,15 @@ class interface:
             list_sortie[I]=row[0]
             I=I+1
         return list_sortie
+    
+    def getStock(self,emplacement):
+        requeteSQL = f"SELECT Couleur FROM GESTION_STOCK WHERE emplacement = '{emplacement}'"
+        #   Exécutez la requête
+        sortie_requet = self.connection_bdd(requeteSQL)
+        couleur=[99]
+        VALEUR_DE_SORTIE=0
+        for couleur in sortie_requet:
+            VALEUR_DE_SORTIE=couleur[0]
+            print(couleur[0])
+            print(VALEUR_DE_SORTIE)
+        return VALEUR_DE_SORTIE
