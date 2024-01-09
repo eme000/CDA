@@ -14,35 +14,59 @@ class interface:
         self.password = os.getenv('DB_PASSWORD')
         
         self.database = os.getenv('DB_DATABASE')
+        
+
 
     def __del__(self): # destructeur
         pass
         # close fonction
-        
-    def getTemp(self):
+    
+    def connection_bdd(self,requete_sql):
         # Connexion à la base de données
         conn = mysql.connector.connect(
         host=self.host,
         user=self.user,
         password=self.password,
         database=self.database)
-        curseur_temp = conn.cursor()
 
-        requeteSQL = "SELECT `VALEUR_RELEVE` FROM `TEMP_AIR` ORDER BY `ID_RELEVE` DESC LIMIT 1"
+        curseur = conn.cursor()
 
-        #   Exécutez la requête
-        liste_resultat=curseur_temp.execute(requeteSQL)
-        temp = 0.0
-        print(type(curseur_temp))
-        print(curseur_temp)
-        for result in curseur_temp:
-            print(type(result))
-            print(result)
-            temp = result[0]
-            
+        curseur.execute(requete_sql)
+        
+        #demander a ERIC J'AI PAS COMPRIS
+        # Récupération des résultats
+        results = curseur.fetchall()
 
-        # Fermez le curseur et la connexion
-        curseur_temp.close()
+        # Fermeture du curseur et de la connexion
+        curseur.close()
         conn.close()
         
-        return temp
+
+        return results
+
+
+    
+    def getLAST(self,nom_table):
+        # ne fonctionne pas sans le F demander a ERIC 
+        requeteSQL = f"SELECT `VALEUR_RELEVE` FROM `{nom_table}` ORDER BY `ID_RELEVE` DESC LIMIT 1"
+        #   Exécutez la requête
+        sortie_requet = self.connection_bdd(requeteSQL)
+        # Traitement des résultats
+        VALEUR_DE_SORTIE = 0.0
+        for resultat in sortie_requet:
+            VALEUR_DE_SORTIE = resultat[0]
+        return VALEUR_DE_SORTIE
+    
+    def getLAST10(self,nom_table):
+        # ne fonctionne pas sans le F demander a ERIC 
+        requeteSQL = f"SELECT `VALEUR_RELEVE` FROM `{nom_table}` ORDER BY `ID_RELEVE` DESC LIMIT 10"
+        #   Exécutez la requête
+        sortie_requet = self.connection_bdd(requeteSQL)
+        # Traitement des résultats
+        list_sortie=[0,0,0,0,0,0,0,0,0,0,0]
+        # Affichez les résultats
+        I=0
+        for row in sortie_requet:
+            list_sortie[I]=row[0]
+            I=I+1
+        return list_sortie

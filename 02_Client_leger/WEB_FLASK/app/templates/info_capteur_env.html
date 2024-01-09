@@ -54,65 +54,58 @@
     <section>
         <div class="info-block" >
             <h2>Temperature air </h2>
-            <img src="{{url_for('static', filename='icone_temperature.png')}}" alt="Icon_temp">
-
-            <div class="info-row">
-                <p>Températures air</p>
-                <!-- Affichez la dernière valeur de température -->
-                <span>3</span>
-                <p>Températures air</p>
-                <!-- Affichez la dernière valeur de température -->
-                <span>4</span>
-            </div>
-            
-
-            </div>
+                <img src="{{url_for('static', filename='icone_temperature.png')}}" alt="icone_temperature">
+                {%for i in range(9)%}
+                <div class="info-row">
+                    <p>05/01/2024:09:15 </p>
+                    <span>{{last_10_temperature[i]}}</span>
+                </div>
+                {% endfor %}
         </div>
 
         <div class="info-block" >
-            <h2>Taux CO2 dans l'air</h2>
-            <img src="{{url_for('static', filename='rond_blanc.png')}}" alt="blanc">
-            <div class="info-row">
-                <img src="{{url_for('static', filename='rond_blanc.png')}}" alt="blanc">
-                <p>rond blanc</p>
-                <span>2</span>
-            </div>
-
+            <h2>Taux CO2 </h2>
+                <img src="{{url_for('static', filename='icone_co2.png')}}" alt="icone_CO2">
+                {%for i in range(9)%}
+                <div class="info-row">
+                    <p>05/01/2024:09:15 </p>
+                    <span>{{last_10_co2[i]}}</span>
+                </div>
+                {% endfor %}
         </div>
 
-        <div class="info-block">
-            <h2>Ordre de frabrication</h2>
-            <div class="info-row">
-                <img src="{{url_for('static', filename='OF.png')}}" alt="OF">
-                <p>date du dernier OF</p>
-                <span>05/01/2024:09:15</span>
-            </div>
-            <div class="info-row">
-                <img src="{{url_for('static', filename='rond_rouge.png')}}" alt="rouge">
-                <p>Couleur du dernier OF</p>
-                <span>1</span>
-            </div>
+        <div class="info-block" >
+            <h2>Taux humidite</h2>
+                <img src="{{url_for('static', filename='icone_humidite.png')}}" alt="icone_humidite">
+                {%for i in range(9)%}
+                <div class="info-row">
+                    <p>05/01/2024:09:15 </p>
+                    <span>{{last_10_humidite[i]}}</span>
+                </div>
+                {% endfor %}
         </div>
 
-        <div class="info-block" onclick="goInfoPage('http://0.0.0.0/info4')">
-            <h2>Gestion d'erreur</h2>
-            <div class="info-row">
-                <img src="{{url_for('static', filename='date.png')}}" alt="date">
-                <p>Date de l'erreur</p>
-                <span>05/01/2024:09:17</span>
-            </div>
-            <div class="info-row">
-                <img src="{{url_for('static', filename='erreur.png')}}" alt="Icon">
-                <p>Code erreur</p>
-                <span>12</span>
-            </div>
-            <div class="info-row">
-                <img src="{{url_for('static', filename='rond_rouge.png')}}" alt="rouge">
-                <p>erreur sur le produit</p>
-                <span>1</span>
-            </div>
+       
+        <div class="info-block" >
+            <h2> Luminosite </h2>
+                <img src="{{url_for('static', filename='icone_luminosite.png')}}" alt="icone_luminosite">
+                {%for i in range(9)%}
+                <div class="info-row">
+                    <p>05/01/2024:09:15 </p>
+                    <span>{{last_10_luminosite[i]}}</span>
+                </div>
+                {% endfor %}
         </div>
-
+        <div class="info-block" >
+            <h2>Pression Ath</h2>
+                <img src="{{url_for('static', filename='icone_ath.png')}}" alt="icone_ath">
+                {%for i in range(9)%}
+                <div class="info-row">
+                    <p>05/01/2024:09:15 </p>
+                    <span>{{last_10_ath[i]}}</span>
+                </div>
+                {% endfor %}
+        </div>
 
     </section>
 

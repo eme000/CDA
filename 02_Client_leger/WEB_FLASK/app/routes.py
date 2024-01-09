@@ -17,11 +17,23 @@ def mini_factory():
 @app.route('/mini_factory__1_/mini_factory__1_production')
 def mini_factory_1_production():
    # Passez cette valeur à la page HTML
-    return render_template('mini_factory_1_production.html', last_temperature=inter.getTemp())
+    return render_template('mini_factory_1_production.html', last_temperature=inter.getLAST("TEMP_AIR"),
+                           last_co2=inter.getLAST("TAUX_CO2"),
+                           last_humidite=inter.getLAST("TAUX_HUMIDITE"),
+                           last_luminosite=inter.getLAST("LUMINOSITE"),
+                           last_ath=inter.getLAST("PRESSION_ATH"))
 
 @app.route('/mini_factory__1_/mini_factory__1_production/info_capteur_env')
 def info_capteur_env_1():
-    return render_template('info_capteur_env.html')
+    return render_template('info_capteur_env.html',last_10_temperature=inter.getLAST10("TEMP_AIR"),
+                           last_10_co2=inter.getLAST10("TAUX_CO2"),
+                           last_10_humidite=inter.getLAST10("TAUX_HUMIDITE"),
+                           last_10_luminosite=inter.getLAST10("LUMINOSITE"),
+                           last_10_ath=inter.getLAST10("PRESSION_ATH"))
+
+@app.route('/mini_factory__1_/mini_factory__1_production/Gestion_stock')
+def gestion_stock_1():
+    return render_template('gestion_stock.html')
 
 @app.route('/list_table')
 def list_table():

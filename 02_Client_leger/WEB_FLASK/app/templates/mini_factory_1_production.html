@@ -65,26 +65,26 @@
             <div class="info-row">
                 <img src="{{url_for('static', filename='icone_co2.png')}}" alt="Icon_cO0">
                 <p>Taux CO2 dans l’air</p>
-                <span>45</span>
+                <span>{{last_co2}}</span>
             </div>
             <div class="info-row">
                 <img src="{{url_for('static', filename='icone_humidite.png')}}" alt="Icon_humidite">
                 <p>Taux humidité dans l’air</p>
-                <span>45</span>
+                <span>{{last_humidite}}</span>
             </div>
             <div class="info-row">
                 <img src="{{url_for('static', filename='icone_luminosite.png')}}" alt="Icon_luminosite">
                 <p>Luminosité</p>
-                <span>45</span>
+                <span>{{last_luminosite}}</span>
             </div>
             <div class="info-row">
                 <img src="{{url_for('static', filename='icone_ath.png')}}" alt="Icon_ath">
                 <p>Pression Ath</p>
-                <span>45</span>
+                <span>{{last_ath}}</span>
             </div>
         </div>
 
-        <div class="info-block" onclick="goInfoPage('http://0.0.0.0/info2')">
+        <div class="info-block" onclick="goInfoPage('http://127.0.0.1:5000/mini_factory__1_/mini_factory__1_production/Gestion_stock')">
             <h2>Gestion du stock</h2>
             <div class="info-row">
                 <img src="{{url_for('static', filename='rond_blanc.png')}}" alt="blanc">
