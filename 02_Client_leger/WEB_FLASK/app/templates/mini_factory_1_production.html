@@ -89,17 +89,17 @@
             <div class="info-row">
                 <img src="{{url_for('static', filename='rond_blanc.png')}}" alt="blanc">
                 <p>rond blanc</p>
-                <span>2</span>
+                <span>{{nb_blanc}}</span>
             </div>
             <div class="info-row">
                 <img src="{{url_for('static', filename='rond_bleu.png')}}" alt="bleu">
                 <p>rond bleu</p>
-                <span>0</span>
+                <span>{{nb_bleu}}</span>
             </div>
             <div class="info-row">
                 <img src="{{url_for('static', filename='rond_rouge.png')}}" alt="rouge">
                 <p>rond rouge</p>
-                <span>1</span>
+                <span>{{nb_rouge}}</span>
             </div>
         </div>
 
@@ -108,10 +108,20 @@
             <div class="info-row">
                 <img src="{{url_for('static', filename='OF.png')}}" alt="OF">
                 <p>date du dernier OF</p>
-                <span>05/01/2024:09:15</span>
+                <span>{{date_of}}</span>
             </div>
             <div class="info-row">
-                <img src="{{url_for('static', filename='rond_rouge.png')}}" alt="rouge">
+            {% if (couleur_of == 1) %}
+                <img src="{{ url_for('static', filename='rond_bleu.png') }}" alt="bleu">
+            {% elif (couleur_of == 2) %}
+                <img src="{{ url_for('static', filename='rond_rouge.png') }}" alt="rouge">
+            {% elif (couleur_of == 3) %}
+                <img src="{{ url_for('static', filename='rond_blanc.png') }}" alt="blanc">
+            {% elif (couleur_of == 99) %}
+                <img src="{{ url_for('static', filename='vide.png') }}" alt="vide">
+            {% else %}
+                <p>BUG</p>
+            {% endif %}
                 <p>Couleur du dernier OF</p>
                 <span>1</span>
             </div>
@@ -130,7 +140,7 @@
                 <span>12</span>
             </div>
             <div class="info-row">
-                <img src="{{url_for('static', filename='rond_rouge.png')}}" alt="rouge">
+
                 <p>erreur sur le produit</p>
                 <span>1</span>
             </div>

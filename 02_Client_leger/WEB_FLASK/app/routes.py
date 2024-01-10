@@ -21,7 +21,12 @@ def mini_factory_1_production():
                            last_co2=inter.getLAST("TAUX_CO2"),
                            last_humidite=inter.getLAST("TAUX_HUMIDITE"),
                            last_luminosite=inter.getLAST("LUMINOSITE"),
-                           last_ath=inter.getLAST("PRESSION_ATH"))
+                           last_ath=inter.getLAST("PRESSION_ATH"),
+                           nb_bleu=inter.getStock_Couleur(1),
+                           nb_rouge=inter.getStock_Couleur(2),
+                           nb_blanc=inter.getStock_Couleur(3),
+                           date_of=inter.getDate_OF(),
+                           couleur_of=inter.getCouleur_OF())
 
 @app.route('/mini_factory__1_/mini_factory__1_production/info_capteur_env')
 def info_capteur_env_1():
@@ -33,7 +38,20 @@ def info_capteur_env_1():
 
 @app.route('/mini_factory__1_/mini_factory__1_production/Gestion_stock')
 def gestion_stock_1():
-    return render_template('gestion_stock.html',bdd_1_emplcement_1_couleur=inter.getStock("1"))
+    return render_template('gestion_stock.html',bdd_1_emplcement_1_couleur=inter.getStock("1"),
+                           bdd_1_emplcement_2_couleur=inter.getStock("2"),
+                           bdd_1_emplcement_3_couleur=inter.getStock("3"),
+                           bdd_1_emplcement_4_couleur=inter.getStock("4"),
+                           bdd_1_emplcement_5_couleur=inter.getStock("5"),
+                           bdd_1_emplcement_6_couleur=inter.getStock("6"),
+                           bdd_1_emplcement_7_couleur=inter.getStock("7"),
+                           bdd_1_emplcement_8_couleur=inter.getStock("8"),
+                           bdd_1_emplcement_9_couleur=inter.getStock("9"))
+    
+@app.route('/mini_factory__1_/mini_factory__1_production/historique_OF')
+def historique_1__of():
+    return render_template('info_OF_.html'),
+  
 
 @app.route('/list_table')
 def list_table():

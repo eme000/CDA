@@ -67,55 +67,137 @@
             <h2>Stock</h2>
             <table>
                 <tr>
+
                     <td>
                         <p>Emplacement 1</p>
-                        {% if bdd_1_emplcement_1_couleur == 1 %}
-                            <img src="{{url_for('static', filename='rond_bleu.png')}}" alt="bleu">
-                        {% elif bdd_1_emplcement_1_couleur == 2 %}
-                            <img src="{{url_for('static', filename='rond_rouge.png')}}" alt="rouge">
-                        {% elif bdd_1_emplcement_1_couleur == 3 %}
-                            <img src="{{url_for('static', filename='rond_blanc.png')}}" alt="blanc">
-                        {% elif bdd_1_emplcement_1_couleur == 99 %}
-                            <img src="{{url_for('static', filename='vide.png')}}" alt="vide">
+                        {% if (bdd_1_emplcement_1_couleur == 1) %}
+                            <img src="{{ url_for('static', filename='rond_bleu.png') }}" alt="bleu">
+                        {% elif (bdd_1_emplcement_1_couleur == 2) %}
+                            <img src="{{ url_for('static', filename='rond_rouge.png') }}" alt="rouge">
+                        {% elif (bdd_1_emplcement_1_couleur == 3) %}
+                            <img src="{{ url_for('static', filename='rond_blanc.png') }}" alt="blanc">
+                        {% elif (bdd_1_emplcement_1_couleur == 99) %}
+                            <img src="{{ url_for('static', filename='vide.png') }}" alt="vide">
                         {% else %}
-                            <p>BUG</p>
+                        <p>BUG</p>
+                        {% endif %}
+                    </td>
+                
+                    <td>
+                        <p>Emplacement 2</p>
+                        {% if (bdd_1_emplcement_2_couleur == 1) %}
+                            <img src="{{ url_for('static', filename='rond_bleu.png') }}" alt="bleu">
+                        {% elif (bdd_1_emplcement_2_couleur == 2) %}
+                            <img src="{{ url_for('static', filename='rond_rouge.png') }}" alt="rouge">
+                        {% elif (bdd_1_emplcement_2_couleur == 3) %}
+                            <img src="{{ url_for('static', filename='rond_blanc.png') }}" alt="blanc">
+                        {% elif (bdd_1_emplcement_2_couleur == 99) %}
+                            <img src="{{ url_for('static', filename='vide.png') }}" alt="vide">
+                        {% else %}
+                        <p>BUG</p>
                         {% endif %}
                     </td>
                     <td>
-                        <p>Emplacement 2</p>
-                        <img src="icone2.png" alt="Icone 2">
-                    </td>
-                    <td>
                         <p>Emplacement 3</p>
-                        <img src="icone3.png" alt="Icone 3">
+                        {% if (bdd_1_emplcement_3_couleur == 1) %}
+                            <img src="{{ url_for('static', filename='rond_bleu.png') }}" alt="bleu">
+                        {% elif (bdd_1_emplcement_3_couleur == 2) %}
+                            <img src="{{ url_for('static', filename='rond_rouge.png') }}" alt="rouge">
+                        {% elif (bdd_1_emplcement_3_couleur == 3) %}
+                            <img src="{{ url_for('static', filename='rond_blanc.png') }}" alt="blanc">
+                        {% elif (bdd_1_emplcement_3_couleur == 99) %}
+                            <img src="{{ url_for('static', filename='vide.png') }}" alt="vide">
+                        {% else %}
+                         <p>BUG</p>
+                        {% endif %}
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <p>Emplacement 4</p>
-                        <img src="icone4.png" alt="Icone 4">
+                        {% if (bdd_1_emplcement_4_couleur == 1) %}
+                            <img src="{{ url_for('static', filename='rond_bleu.png') }}" alt="bleu">
+                        {% elif (bdd_1_emplcement_4_couleur == 2) %}
+                            <img src="{{ url_for('static', filename='rond_rouge.png') }}" alt="rouge">
+                        {% elif (bdd_1_emplcement_4_couleur == 3) %}
+                            <img src="{{ url_for('static', filename='rond_blanc.png') }}" alt="blanc">
+                        {% elif (bdd_1_emplcement_4_couleur == 99) %}
+                            <img src="{{ url_for('static', filename='vide.png') }}" alt="vide">
+                        {% else %}
+                            <p>BUG</p>
+                        {% endif %}
                     </td>
                     <td>
                         <p>Emplacement 5</p>
-                        <img src="icone5.png" alt="Icone 5">
+                        {% if (bdd_1_emplcement_5_couleur == 1) %}
+                            <img src="{{ url_for('static', filename='rond_bleu.png') }}" alt="bleu">
+                        {% elif (bdd_1_emplcement_5_couleur == 2) %}
+                            <img src="{{ url_for('static', filename='rond_rouge.png') }}" alt="rouge">
+                        {% elif (bdd_1_emplcement_5_couleur == 3) %}
+                            <img src="{{ url_for('static', filename='rond_blanc.png') }}" alt="blanc">
+                        {% elif (bdd_1_emplcement_5_couleur == 99) %}
+                            <img src="{{ url_for('static', filename='vide.png') }}" alt="vide">
+                        {% else %}
+                           <p>BUG</p>
+                        {% endif %}
                     </td>
                     <td>
                         <p>Emplacement 6</p>
-                        <img src="icone6.png" alt="Icone 6">
+                        {% if (bdd_1_emplcement_6_couleur == 1) %}
+                            <img src="{{ url_for('static', filename='rond_bleu.png') }}" alt="bleu">
+                        {% elif (bdd_1_emplcement_6_couleur == 2) %}
+                            <img src="{{ url_for('static', filename='rond_rouge.png') }}" alt="rouge">
+                        {% elif (bdd_1_emplcement_6_couleur == 3) %}
+                            <img src="{{ url_for('static', filename='rond_blanc.png') }}" alt="blanc">
+                        {% elif (bdd_1_emplcement_6_couleur == 99) %}
+                            <img src="{{ url_for('static', filename='vide.png') }}" alt="vide">
+                        {% else %}
+                           <p>BUG</p>
+                        {% endif %}
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <p>Emplacement 7</p>
-                        <img src="icone7.png" alt="Icone 7">
+                        {% if (bdd_1_emplcement_7_couleur == 1) %}
+                            <img src="{{ url_for('static', filename='rond_bleu.png') }}" alt="bleu">
+                        {% elif (bdd_1_emplcement_7_couleur == 2) %}
+                            <img src="{{ url_for('static', filename='rond_rouge.png') }}" alt="rouge">
+                        {% elif (bdd_1_emplcement_7_couleur == 3) %}
+                            <img src="{{ url_for('static', filename='rond_blanc.png') }}" alt="blanc">
+                        {% elif (bdd_1_emplcement_7_couleur == 99) %}
+                            <img src="{{ url_for('static', filename='vide.png') }}" alt="vide">
+                        {% else %}
+                           <p>BUG</p>
+                        {% endif %}
                     </td>
                     <td>
                         <p>Emplacement 8</p>
-                        <img src="icone8.png" alt="Icone 8">
+                        {% if (bdd_1_emplcement_8_couleur == 1) %}
+                            <img src="{{ url_for('static', filename='rond_bleu.png') }}" alt="bleu">
+                        {% elif (bdd_1_emplcement_8_couleur == 2) %}
+                            <img src="{{ url_for('static', filename='rond_rouge.png') }}" alt="rouge">
+                        {% elif (bdd_1_emplcement_8_couleur == 3) %}
+                            <img src="{{ url_for('static', filename='rond_blanc.png') }}" alt="blanc">
+                        {% elif (bdd_1_emplcement_8_couleur == 99) %}
+                            <img src="{{ url_for('static', filename='vide.png') }}" alt="vide">
+                        {% else %}
+                            <p>BUG</p>
+                        {% endif %}
                     </td>
                     <td>
                         <p>Emplacement 9</p>
-                        <img src="icone9.png" alt="Icone 9">
+                        {% if (bdd_1_emplcement_9_couleur == 1) %}
+                            <img src="{{ url_for('static', filename='rond_bleu.png') }}" alt="bleu">
+                        {% elif (bdd_1_emplcement_9_couleur == 2) %}
+                            <img src="{{ url_for('static', filename='rond_rouge.png') }}" alt="rouge">
+                        {% elif (bdd_1_emplcement_9_couleur == 3) %}
+                            <img src="{{ url_for('static', filename='rond_blanc.png') }}" alt="blanc">
+                        {% elif (bdd_1_emplcement_9_couleur == 99) %}
+                            <img src="{{ url_for('static', filename='vide.png') }}" alt="vide">
+                        {% else %}
+                            <p>BUG</p>
+                        {% endif %}
                     </td>
                 </tr>
             </table>

@@ -76,9 +76,33 @@ class interface:
         #   Exécutez la requête
         sortie_requet = self.connection_bdd(requeteSQL)
         couleur=[99]
-        VALEUR_DE_SORTIE=0
+        VALEUR_DE_SORTIE=99
         for couleur in sortie_requet:
             VALEUR_DE_SORTIE=couleur[0]
-            print(couleur[0])
-            print(VALEUR_DE_SORTIE)
         return VALEUR_DE_SORTIE
+    
+    def getStock_Couleur(self,couleur):
+        requeteSQL = f"SELECT Couleur FROM GESTION_STOCK WHERE emplacement <> '99' AND Couleur = '{couleur}'"
+        sortie_requet = self.connection_bdd(requeteSQL)
+        row =[0]
+        nb_couleur=0
+        I=0
+        for row in sortie_requet:
+            I=I+1
+        nb_couleur=I
+        return nb_couleur
+
+    def getDate_OF(self):
+        requeteSQL = "SELECT `DATE_OF` FROM `Ordre_de_fabrication` ORDER BY `ID_OF` DESC LIMIT 1"
+        sortie_requet = self.connection_bdd(requeteSQL)
+        for row in sortie_requet:
+            date_of=row[0]
+        return date_of
+
+    def getCouleur_OF(self):
+        requeteSQL = "SELECT `COULEUR_PRODUIT` FROM `Ordre_de_fabrication` ORDER BY `ID_OF` DESC LIMIT 1"
+        sortie_requet = self.connection_bdd(requeteSQL)
+        for row in sortie_requet:
+            couleur=row[0]
+        print(couleur)
+        return couleur

@@ -22,19 +22,18 @@ conn = mysql.connector.connect(
 # Création d'un curseur
 curseur_temp = conn.cursor()
 
-requette = "SELECT Couleur FROM GESTION_STOCK WHERE emplacement = '1';"
+requette = "SELECT `COULEUR_PRODUIT` FROM `Ordre_de_fabrication` ORDER BY `ID_OF` DESC LIMIT 1"
 
 # Exécutez la requête
 curseur_temp.execute(requette)
 
 
 # Affichez les résultats
-I=0
-row =[99]
-for row in curseur_temp:
-    print(row[0])
 
-    I=I+1
+row =[0]
+for row in curseur_temp:
+    print("row =[0]")
+
 print(" ")
 print(row[0])
 print(" ")
