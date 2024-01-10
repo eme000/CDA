@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ma Page</title>
+    <title>Ma Deuxième Page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,25 +14,33 @@
         header {
             background-color: #f2f2f2;
             padding: 10px;
-            text-align: left; /* Aligner le texte à gauche */
+            text-align: left;
         }
-        
         section {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 80vh;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
         }
-        .column {
-            margin: 10px;
-            text-align: center; /* Centrer le texte */
-        }
-        .column img {
-            width: 300px;
-            height: 250px;
+        .info-block {
             border: 1px solid #ddd;
             border-radius: 4px;
-            padding: 5px;
+            margin: 10px;
+            padding: 15px;
+            width: 300px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .info-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+        .info-row img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -43,38 +51,33 @@
         <button onclick="goLogin()">Login</button>
     </header>
 
-
-    
     <section>
-        <div class="column">
-            <p>Image 1</p>
-            <img src="{{url_for('static', filename='mini_facytory_logo.png')}}" alt="Image 1">
-        </div>
-        <div class="column">
-            <p>Image 2</p>
-            <img src="image2.jpg" alt="Image 2">
+        <div class="info-block" >
+            <h2>Temperature air </h2>
+                <img src="{{url_for('static', filename='icone_temperature.png')}}" alt="icone_temperature">
+                {%for i in range(9)%}
+                <div class="info-row">
+                    <p>05/01/2024:09:15 </p>
+                    <span>fonction requet sql  </span>
+                </div>
+                {% endfor %}
         </div>
     </section>
 
-    <div class="info-block" >
-        <h2>historique OF </h2>
-            <img src="{{url_for('static', filename='icone_ath.png')}}" alt="icone_ath">
-            {%for i in range(9)%}
-            <div class="info-row">
-                <p>05/01/2024:09:15 </p>
-                <span>{{last_10_ath[i]}}</span>
-            </div>
-            {% endfor %}
-    </div>
     <script>
         function goHome() {
             // Rediriger vers l'IP principale (0.0.0.0)
-            window.location.href = "http://0.0.0.0";
+            window.location.href = "http://127.0.0.1:5000";
         }
 
         function goLogin() {
             // Ajouter le code de redirection vers la page de login ici
             alert("Fonctionnalité de login à implémenter.");
+        }
+
+        function goInfoPage(link) {
+            // Rediriger vers le lien spécifié
+            window.location.href = link;
         }
     </script>
 

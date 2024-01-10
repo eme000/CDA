@@ -50,12 +50,13 @@ def gestion_stock_1():
     
 @app.route('/mini_factory__1_/mini_factory__1_production/historique_OF')
 def historique_1__of():
-    return render_template('info_OF_.html'),
+    return render_template('vide.html'),
   
 
 @app.route('/list_table')
 def list_table():
     return render_template('list_bdd.html')
+
 
 @app.route('/test')
 def show_tables():
