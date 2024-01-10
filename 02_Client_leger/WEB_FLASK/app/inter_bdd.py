@@ -106,3 +106,34 @@ class interface:
             couleur=row[0]
         print(couleur)
         return couleur
+    
+    def getDate_OF_10(self):
+        # ne fonctionne pas sans le F demander a ERIC 
+        requeteSQL = f"SELECT `DATE_OF` FROM `Ordre_de_fabrication` ORDER BY `ID_OF` DESC LIMIT 10"
+        #   Exécutez la requête
+        sortie_requet = self.connection_bdd(requeteSQL)
+        # Traitement des résultats
+        list_sortie=[0,0,0,0,0,0,0,0,0,0,0]
+        # Affichez les résultats
+        I=0
+        for row in sortie_requet:
+            list_sortie[I]=row[0]
+            I=I+1
+        print(list_sortie)
+        return list_sortie
+    
+    
+    def getCouleur_OF_10(self):
+        # ne fonctionne pas sans le F demander a ERIC 
+        requeteSQL = f"SELECT `COULEUR_PRODUIT` FROM `Ordre_de_fabrication` ORDER BY `ID_OF` DESC LIMIT 10"
+        #   Exécutez la requête
+        sortie_requet = self.connection_bdd(requeteSQL)
+        # Traitement des résultats
+        list_sortie=[0,0,0,0,0,0,0,0,0,0,0]
+        # Affichez les résultats
+        I=0
+        for row in sortie_requet:
+            list_sortie[I]=row[0]
+            I=I+1
+        print(list_sortie)
+        return list_sortie

@@ -48,10 +48,10 @@ def gestion_stock_1():
                            bdd_1_emplcement_8_couleur=inter.getStock("8"),
                            bdd_1_emplcement_9_couleur=inter.getStock("9"))
     
-@app.route('/mini_factory__1_/mini_factory__1_production/historique_OF')
-def historique_1__of():
-    return render_template('vide.html'),
-  
+@app.route('/mini_factory__1_/mini_factory__1_production/OF')
+def info_OF():
+    return render_template('info_OF_.html',last_10_of_date=inter.getDate_OF_10(),
+                           last_10_of_couleur=inter.getCouleur_OF_10())
 
 @app.route('/list_table')
 def list_table():

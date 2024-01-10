@@ -42,6 +42,9 @@
             height: 20px;
             margin-right: 10px;
         }
+        .dropdown {
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -52,15 +55,38 @@
     </header>
 
     <section>
-        <div class="info-block" >
-            <h2>Temperature air </h2>
-                <img src="{{url_for('static', filename='icone_temperature.png')}}" alt="icone_temperature">
-                {%for i in range(9)%}
-                <div class="info-row">
-                    <p>05/01/2024:09:15 </p>
-                    <span>fonction requet sql  </span>
-                </div>
-                {% endfor %}
+        <div class="info-block">
+            <h2>Historique OF</h2>
+            <img src="{{url_for('static', filename='OF.png')}}" alt="icone_OF">
+            
+            <!-- Dropdown Box -->
+            <div class="dropdown">
+                <label for="rows">Nombre de lignes à afficher :</label>
+                <select id="rows" name="rows">
+                    <option value="1">1</option>
+                    <option value="5">5</option>
+                    <option value="10" selected>10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                </select>
+            </div>
+            
+            {% for i in range(selected_rows) %}
+            <div class="info-row">
+                <p>{{ last_10_of_date[i] }} </p>
+                {% if last_10_of_couleur[i] == 1 %}
+                    <img src="{{ url_for('static', filename='rond_bleu.png') }}" alt="bleu">
+                {% elif last_10_of_couleur[i] == 2 %}
+                    <img src="{{ url_for('static', filename='rond_rouge.png') }}" alt="rouge">
+                {% elif last_10_of_couleur[i] == 3 %}
+                    <img src="{{ url_for('static', filename='rond_blanc.png') }}" alt="blanc">
+                {% elif last_10_of_couleur[i] == 99 %}
+                    <img src="{{ url_for('static', filename='vide.png') }}" alt="vide">
+                {% else %}
+                    <p>BUG</p>
+                {% endif %}
+            </div>
+            {% endfor %}
         </div>
     </section>
 
