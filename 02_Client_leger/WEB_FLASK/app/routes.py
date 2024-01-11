@@ -57,6 +57,10 @@ def info_OF():
 def list_table():
     return render_template('list_bdd.html')
 
+@app.route('/mini_factory/Ilots')
+def list_ilots():
+    return render_template('ilots.html')
+
 
 @app.route('/test')
 def show_tables():

@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ordre de frabrication</title>
+    <title>Ordre de fabrication</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='CSS/Main.css')}}">
 
+    <script>
+
+    </script>
 </head>
 <body>
 
@@ -18,21 +21,17 @@
     <section>
         <div class="info-block">
             <h2>Historique OF</h2>
+            <p id="selectedValue"></p> <!-- Ajout de l'élément pour afficher la valeur sélectionnée -->
             <img src="{{url_for('static', filename='OF.png')}}" alt="icone_OF">
-            
-            <!-- Dropdown Box -->
-            <div class="dropdown">
-                <label for="rows">Nombre de lignes à afficher :</label>
-                <select id="rows" name="rows">
-                    <option value="1">1</option>
-                    <option value="5">5</option>
-                    <option value="10" selected>10</option>
-                    <option value="25">25</option>
-                    <option value="50">50</option>
-                </select>
-            </div>
-            
-            {% for i in range(selected_rows) %}
+
+            <select name="thelist" onChange="combo(this, 'theinput')" onMouseOut="comboInit(this, 'theinput')" >
+            <option>1</option>
+            <option>5</option>
+            <option>10</option>
+            <option>25</option>
+            </select>
+
+            {% for i in range(9) %}
             <div class="info-row">
                 <p>{{ last_10_of_date[i] }} </p>
                 {% if last_10_of_couleur[i] == 1 %}
