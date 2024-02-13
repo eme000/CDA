@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/Main.css')}}">
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form action="#" method="POST">
+            <div class="form-group">
+            <h2> se conneter </h2>
+
+                <p>
+                    {{form.username.label}} <br>
+                    {{form.username(size=30)}}
+                </p>
+                <p>
+                    {{form.password.label}} <br>
+                    {{form.password(size=30)}}
+                </p>
+                <p> 
+                    {{form.submit()}} <br>
+                </p>
+        </form>
+    </div>
+</body>
+</html>

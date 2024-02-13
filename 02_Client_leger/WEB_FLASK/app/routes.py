@@ -2,8 +2,13 @@
 # Ajoutez conn pour la connexion à la base de données
 #from app import conn
 from app import app
-from flask import render_template
+import mysql.connector
 from app import inter
+from form import SignUpForm
+
+from flask import render_template, redirect, url_for, flash
+from werkzeug.security import generate_password_hash, check_password_hash
+
 
 
 @app.route('/')
@@ -68,3 +73,53 @@ def show_tables():
     table_names = ['Couleur', 'GESTION_ERREUR', 'GESTION_STOCK', 'LUMINOSITE', 'Ordre_de_fabrication', 'PRESSION_ATH', 'PRODUIT', 'TAUX_CO2', 'TAUX_HUMIDITE', 'TEMP_AIR', 'ilo', 'information_erreur', 'suivit_production', 'unité_fab']
 
     return render_template('index.html', liste=table_names)
+
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    
+    form = SignUpForm()
+    
+    if form.validate_on_submit():
+        print("je suis la ")
+        username = form.username.data
+        password = form.password.data
+        hashed_password = generate_password_hash(password)
+
+        print(username)
+        print(password)
+        print(hashed_password)
+
+        inter.execute_query(username,password)
+
+        return redirect(url_for('home'))
+    return render_template('signup.html', form=form)
+
+
+
+
+
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = SignUpForm()
+    if form.validate_on_submit():
+        username = form.username.data
+        password = form.password.data
+        
+        # Récupérer l'utilisateur depuis la base de données
+        query = f"SELECT * FROM users WHERE username = '{username}'"
+        user = inter.execute_query(query)
+        
+        if user:
+            # Vérifiez si le mot de passe correspond
+            if check_password_hash(user[0][2], password):
+                # Connectez l'utilisateur et redirigez-le vers la page d'accueil par exemple
+                flash('Login successful!', 'success')
+                return redirect(url_for('home'))
+            else:
+                flash('Invalid username or password', 'error')
+        else:
+            flash('Invalid username or password', 'error')
+    return render_template('login.html', form=form)

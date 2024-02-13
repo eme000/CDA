@@ -36,6 +36,8 @@ class interface:
         #demander a ERIC J'AI PAS COMPRIS
         # Récupération des résultats
         results = curseur.fetchall()
+        
+        conn.commit()
 
         # Fermeture du curseur et de la connexion
         curseur.close()
@@ -137,3 +139,36 @@ class interface:
             I=I+1
         print(list_sortie)
         return list_sortie
+    
+
+
+    def execute_query(self, username,hashed_password):
+        try:
+
+            query = f"INSERT INTO `users` (`username`, `password_hash`) VALUES ('{username}', '{hashed_password}');"
+            print('ouig')
+            self.connection_bdd(query)
+            
+        
+        except Exception as e:
+            print(f"erreur : {e}")
+        return False
+
+        
+        
+if __name__ == "__main__":
+    inter = interface()
+    #inter.execute_query("zdadsayeexerr","1646zwexsrc")
+    #try:
+    
+    
+    query = f"INSERT INTO `users` (`username`, `password_hash`) VALUES ('fefrffefeff', 'efezfeirdef55485fezzf');"
+    print('oui')
+    inter.connection_bdd(query)
+
+ 
+    print('oui_oui')
+
+        
+    #except Exception as e:
+    #    print(f"erreur : {e}")
