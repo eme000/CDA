@@ -14,6 +14,7 @@
     <header>
         <button onclick="goHome()">Home</button>
         <button onclick="goLogin()">Login</button>
+        <button onclick="goSignup()">Signup</button>
     </header>
 
     <section>
@@ -51,7 +52,11 @@
 
         function goLogin() {
             // Ajouter le code de redirection vers la page de login ici
-            alert("Fonctionnalité de login à implémenter.");
+            window.location.href = "http://127.0.0.1:5000/login";
+        }
+        function goSignup() {
+            // Ajouter le code de redirection vers la page de login ici
+            window.location.href = "http://127.0.0.1:5000/signup";
         }
     </script>
 

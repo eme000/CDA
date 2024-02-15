@@ -77,23 +77,21 @@ def show_tables():
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    
     form = SignUpForm()
+    error = None
     
     if form.validate_on_submit():
-        print("je suis la ")
         username = form.username.data
         password = form.password.data
         hashed_password = generate_password_hash(password)
 
-        print(username)
-        print(password)
-        print(hashed_password)
-
-        inter.execute_query(username,hashed_password)
-
-        return redirect(url_for('home'))
-    return render_template('signup.html', form=form)
+        test = inter.signup_requette(username, hashed_password)
+        if test == 1:
+            error = "Ce nom d'utilisateur est déjà pris."
+        else:
+            return redirect(url_for('home'))
+            
+    return render_template('signup.html', form=form, error=error)
 
 
 
@@ -105,21 +103,17 @@ def signup():
 def login():
     form = SignUpForm()
     if form.validate_on_submit():
+        
+        print("je suis la ")
         username = form.username.data
         password = form.password.data
-        
-        # Récupérer l'utilisateur depuis la base de données
-        query = f"SELECT * FROM users WHERE username = '{username}'"
-        user = inter.execute_query(query)
-        
-        if user:
-            # Vérifiez si le mot de passe correspond
-            if check_password_hash(user[0][2], password):
-                # Connectez l'utilisateur et redirigez-le vers la page d'accueil par exemple
-                flash('Login successful!', 'success')
-                return redirect(url_for('home'))
-            else:
-                flash('Invalid username or password', 'error')
-        else:
-            flash('Invalid username or password', 'error')
+        hashed_password = generate_password_hash(password)
+
+        print(username)
+        print(password)
+        print(hashed_password)
+
+        inter.signup_requette(username,hashed_password)
+
+        return redirect(url_for('home'))
     return render_template('login.html', form=form)

@@ -141,34 +141,20 @@ class interface:
         return list_sortie
     
 
-
-    def execute_query(self, username,hashed_password):
+    def signup_requette(self, username, hashed_password):
         try:
-
+            test = 0
             query = f"INSERT INTO `users` (`username`, `password_hash`) VALUES ('{username}', '{hashed_password}');"
             print('ouig')
             self.connection_bdd(query)
             
-        
         except Exception as e:
-            print(f"erreur : {e}")
-        return False
-
+            if "1062" in str(e):
+                print("Erreur : Ce nom d'utilisateur existe déjà.")
+                test = 1
+                return test
+            else:
+                print(f"Erreur : {e}")
+                return False
         
         
-if __name__ == "__main__":
-    inter = interface()
-    #inter.execute_query("zdadsayeexerr","1646zwexsrc")
-    #try:
-    
-    
-    query = f"INSERT INTO `users` (`username`, `password_hash`) VALUES ('fefrffefeff', 'efezfeirdef55485fezzf');"
-    print('oui')
-    inter.connection_bdd(query)
-
- 
-    print('oui_oui')
-
-        
-    #except Exception as e:
-    #    print(f"erreur : {e}")
