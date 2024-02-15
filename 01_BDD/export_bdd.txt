@@ -1,0 +1,238 @@
+-- Adminer 4.8.1 MySQL 8.2.0 dump
+
+SET NAMES utf8;
+SET time_zone = '+00:00';
+SET foreign_key_checks = 0;
+SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
+
+SET NAMES utf8mb4;
+
+DROP TABLE IF EXISTS `Couleur`;
+CREATE TABLE `Couleur` (
+  `ID_COULEUR` bigint NOT NULL,
+  `nom_couleur` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`ID_COULEUR`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `Couleur` (`ID_COULEUR`, `nom_couleur`) VALUES
+(1,	'BLEU'),
+(2,	'ROUGE'),
+(3,	'BLANC');
+
+DROP TABLE IF EXISTS `GESTION_ERREUR`;
+CREATE TABLE `GESTION_ERREUR` (
+  `ID_ERREUR` bigint NOT NULL,
+  `CODE_ERREUR` smallint DEFAULT NULL,
+  `DATE_ERREUR` datetime DEFAULT NULL,
+  `ID_PRODUIT` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`ID_ERREUR`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+DROP TABLE IF EXISTS `GESTION_STOCK`;
+CREATE TABLE `GESTION_STOCK` (
+  `ID_STOCK` bigint NOT NULL,
+  `emplacement` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Couleur` int DEFAULT NULL,
+  `ID_AM` bigint NOT NULL,
+  PRIMARY KEY (`ID_STOCK`),
+  UNIQUE KEY `ID_AM` (`ID_AM`),
+  CONSTRAINT `GESTION_STOCK_ibfk_1` FOREIGN KEY (`ID_AM`) REFERENCES `PRODUIT` (`ID_AM`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `GESTION_STOCK` (`ID_STOCK`, `emplacement`, `Couleur`, `ID_AM`) VALUES
+(1,	'1',	3,	1),
+(2,	'5',	1,	2),
+(3,	'6',	3,	3),
+(4,	'9',	2,	4);
+
+DROP TABLE IF EXISTS `LUMINOSITE`;
+CREATE TABLE `LUMINOSITE` (
+  `ID_RELEVE` bigint NOT NULL,
+  `DATE_RELEVE` datetime DEFAULT NULL,
+  `VALEUR_RELEVE` decimal(15,2) DEFAULT NULL,
+  PRIMARY KEY (`ID_RELEVE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `LUMINOSITE` (`ID_RELEVE`, `DATE_RELEVE`, `VALEUR_RELEVE`) VALUES
+(1,	NULL,	150.00),
+(2,	NULL,	200.00);
+
+DROP TABLE IF EXISTS `Ordre_de_fabrication`;
+CREATE TABLE `Ordre_de_fabrication` (
+  `ID_OF` bigint NOT NULL,
+  `DATE_OF` datetime NOT NULL,
+  `COULEUR_PRODUIT` tinyint DEFAULT NULL,
+  `ID_AM` bigint NOT NULL,
+  PRIMARY KEY (`ID_OF`),
+  UNIQUE KEY `ID_AM` (`ID_AM`),
+  CONSTRAINT `Ordre_de_fabrication_ibfk_1` FOREIGN KEY (`ID_AM`) REFERENCES `PRODUIT` (`ID_AM`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `Ordre_de_fabrication` (`ID_OF`, `DATE_OF`, `COULEUR_PRODUIT`, `ID_AM`) VALUES
+(1,	'2024-01-10 08:15:54',	1,	1);
+
+DROP TABLE IF EXISTS `PRESSION_ATH`;
+CREATE TABLE `PRESSION_ATH` (
+  `ID_RELEVE` bigint NOT NULL,
+  `DATE_RELEVE` datetime DEFAULT NULL,
+  `VALEUR_RELEVE` decimal(15,2) DEFAULT NULL,
+  PRIMARY KEY (`ID_RELEVE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `PRESSION_ATH` (`ID_RELEVE`, `DATE_RELEVE`, `VALEUR_RELEVE`) VALUES
+(1,	NULL,	150.00);
+
+DROP TABLE IF EXISTS `PRODUIT`;
+CREATE TABLE `PRODUIT` (
+  `ID_AM` bigint NOT NULL,
+  `DATE_AM` datetime DEFAULT NULL,
+  `DATE_OF` datetime DEFAULT NULL,
+  `ETAT` tinyint DEFAULT NULL,
+  `SI_ERREUR` smallint DEFAULT NULL,
+  `ID_COULEUR` bigint NOT NULL,
+  PRIMARY KEY (`ID_AM`),
+  KEY `ID_COULEUR` (`ID_COULEUR`),
+  CONSTRAINT `PRODUIT_ibfk_1` FOREIGN KEY (`ID_COULEUR`) REFERENCES `Couleur` (`ID_COULEUR`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `PRODUIT` (`ID_AM`, `DATE_AM`, `DATE_OF`, `ETAT`, `SI_ERREUR`, `ID_COULEUR`) VALUES
+(1,	NULL,	NULL,	0,	NULL,	1),
+(2,	NULL,	NULL,	0,	NULL,	3),
+(3,	NULL,	NULL,	NULL,	NULL,	3),
+(4,	NULL,	NULL,	NULL,	NULL,	2);
+
+DROP TABLE IF EXISTS `TAUX_CO2`;
+CREATE TABLE `TAUX_CO2` (
+  `ID_RELEVE` bigint NOT NULL,
+  `DATE_RELEVE` datetime DEFAULT NULL,
+  `VALEUR_RELEVE` decimal(15,2) DEFAULT NULL,
+  PRIMARY KEY (`ID_RELEVE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `TAUX_CO2` (`ID_RELEVE`, `DATE_RELEVE`, `VALEUR_RELEVE`) VALUES
+(1,	NULL,	12.00),
+(2,	NULL,	58.00);
+
+DROP TABLE IF EXISTS `TAUX_HUMIDITE`;
+CREATE TABLE `TAUX_HUMIDITE` (
+  `ID_RELEVE` bigint NOT NULL,
+  `DATE_RELEVE` datetime DEFAULT NULL,
+  `VALEUR_RELEVE` decimal(15,2) DEFAULT NULL,
+  PRIMARY KEY (`ID_RELEVE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `TAUX_HUMIDITE` (`ID_RELEVE`, `DATE_RELEVE`, `VALEUR_RELEVE`) VALUES
+(1,	NULL,	12.00),
+(2,	NULL,	50.00);
+
+DROP TABLE IF EXISTS `TEMP_AIR`;
+CREATE TABLE `TEMP_AIR` (
+  `ID_RELEVE` bigint NOT NULL,
+  `DATE_RELEVE` datetime DEFAULT NULL,
+  `VALEUR_RELEVE` decimal(15,2) DEFAULT NULL,
+  PRIMARY KEY (`ID_RELEVE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `TEMP_AIR` (`ID_RELEVE`, `DATE_RELEVE`, `VALEUR_RELEVE`) VALUES
+(1,	NULL,	21.00),
+(2,	NULL,	25.00),
+(3,	NULL,	15.00),
+(4,	NULL,	20.00),
+(5,	NULL,	48.00);
+
+DROP TABLE IF EXISTS `ilo`;
+CREATE TABLE `ilo` (
+  `ID_ilo` tinyint NOT NULL,
+  `NOM_ilo` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `cadence` decimal(15,2) DEFAULT NULL,
+  `fabricant` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ID_unité_fabrication` int NOT NULL,
+  PRIMARY KEY (`ID_ilo`),
+  KEY `ID_unité_fabrication` (`ID_unité_fabrication`),
+  CONSTRAINT `ilo_ibfk_1` FOREIGN KEY (`ID_unité_fabrication`) REFERENCES `unité_fab` (`ID_unité_fabrication`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+DROP TABLE IF EXISTS `information_erreur`;
+CREATE TABLE `information_erreur` (
+  `ID_ERREUR` bigint NOT NULL,
+  `ID_ilo` tinyint NOT NULL,
+  PRIMARY KEY (`ID_ERREUR`,`ID_ilo`),
+  KEY `ID_ilo` (`ID_ilo`),
+  CONSTRAINT `information_erreur_ibfk_1` FOREIGN KEY (`ID_ERREUR`) REFERENCES `GESTION_ERREUR` (`ID_ERREUR`),
+  CONSTRAINT `information_erreur_ibfk_2` FOREIGN KEY (`ID_ilo`) REFERENCES `ilo` (`ID_ilo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+DROP TABLE IF EXISTS `suivit_production`;
+CREATE TABLE `suivit_production` (
+  `ID_AM` bigint NOT NULL,
+  `ID_unité_fabrication` int NOT NULL,
+  PRIMARY KEY (`ID_AM`,`ID_unité_fabrication`),
+  KEY `ID_unité_fabrication` (`ID_unité_fabrication`),
+  CONSTRAINT `suivit_production_ibfk_1` FOREIGN KEY (`ID_AM`) REFERENCES `PRODUIT` (`ID_AM`),
+  CONSTRAINT `suivit_production_ibfk_2` FOREIGN KEY (`ID_unité_fabrication`) REFERENCES `unité_fab` (`ID_unité_fabrication`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+DROP TABLE IF EXISTS `test`;
+CREATE TABLE `test` (
+  `test_ID_1` int NOT NULL AUTO_INCREMENT,
+  `test_ID_2` int NOT NULL,
+  PRIMARY KEY (`test_ID_1`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `test` (`test_ID_1`, `test_ID_2`) VALUES
+(1,	56),
+(2,	56),
+(3,	56),
+(4,	56),
+(5,	56),
+(6,	56),
+(7,	56),
+(8,	56),
+(9,	56),
+(10,	56),
+(11,	56),
+(12,	56),
+(13,	56),
+(14,	56),
+(15,	56),
+(16,	56),
+(17,	56),
+(18,	56),
+(19,	56),
+(20,	56),
+(21,	56),
+(22,	56),
+(23,	8),
+(24,	8),
+(25,	8),
+(26,	8),
+(27,	8),
+(28,	8),
+(29,	8),
+(30,	8),
+(31,	8);
+
+DROP TABLE IF EXISTS `unité_fab`;
+CREATE TABLE `unité_fab` (
+  `ID_unité_fabrication` int NOT NULL,
+  PRIMARY KEY (`ID_unité_fabrication`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password_hash` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `users` (`id`, `username`, `password_hash`) VALUES
+(36,	'test',	'scrypt:32768:8:1$DUn1xv5L39ZkSxpj$ded9d30f06b95feaa0f443cc29bf5a2819c968392a768fe6519e4ce3510dc3af83fb0df23bbb37433a80f7ca5463d18902f64841f6f9bfc271f0a451ff707a0c');
+
+-- 2024-02-15 12:46:12
