@@ -90,7 +90,7 @@ def signup():
         print(password)
         print(hashed_password)
 
-        inter.execute_query(username,password)
+        inter.execute_query(username,hashed_password)
 
         return redirect(url_for('home'))
     return render_template('signup.html', form=form)
