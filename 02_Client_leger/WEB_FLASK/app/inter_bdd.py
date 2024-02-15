@@ -1,7 +1,7 @@
 import os
 import mysql.connector
 from dotenv import load_dotenv
-
+from werkzeug.security import generate_password_hash, check_password_hash
 
 class interface:
     def __init__(self): # constructeur
@@ -143,18 +143,41 @@ class interface:
 
     def signup_requette(self, username, hashed_password):
         try:
-            test = 0
-            query = f"INSERT INTO `users` (`username`, `password_hash`) VALUES ('{username}', '{hashed_password}');"
+            error_user = 0
+            requeteSQL = f"INSERT INTO `users` (`username`, `password_hash`) VALUES ('{username}', '{hashed_password}');"
             print('ouig')
-            self.connection_bdd(query)
+            self.connection_bdd(requeteSQL)
             
         except Exception as e:
             if "1062" in str(e):
                 print("Erreur : Ce nom d'utilisateur existe déjà.")
-                test = 1
-                return test
+                error_user = 1
+                return error_user
             else:
                 print(f"Erreur : {e}")
                 return False
-        
-        
+            
+    def login_requette(self, username, hashed_password, password):
+        try:
+            # Récupérer le mot de passe haché depuis la base de données
+            requeteSQL = f"SELECT password_hash FROM `users` WHERE `username` = '{username}'"
+            result = self.connection_bdd(requeteSQL)
+
+            # Vérifier si un résultat a été retourné et s'il a au moins un mot de passe haché
+            if result and len(result) > 0:
+                # Il peut y avoir plusieurs résultats, prenons le premier
+                hashed_password_db = result[0][0]
+
+                # Vérifier si le mot de passe fourni correspond au mot de passe haché stocké
+                if check_password_hash(hashed_password_db, password):
+                    print("Utilisateur authentifié avec succès.")
+                    return True
+                else:
+                    print("Nom d'utilisateur ou mot de passe incorrect.")
+                    return False
+            else:
+                print("Nom d'utilisateur ou mot de passe incorrect.")
+                return False
+        except Exception as e:
+            print(f"Erreur : {e}")
+            return False

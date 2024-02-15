@@ -10,21 +10,22 @@
 <body>
     <div class="login-container">
         <h1>Login</h1>
-        <form action="#" method="POST">
+        <form action="{{ url_for('login') }}" method="POST">
+            {{ form.csrf_token }}
             <div class="form-group">
-            <h2> se conneter </h2>
-
+                <h2>Se connecter</h2>
                 <p>
-                    {{form.username.label}} <br>
-                    {{form.username(size=30)}}
+                    {{ form.username.label }} <br>
+                    {{ form.username(size=30) }}
                 </p>
                 <p>
-                    {{form.password.label}} <br>
-                    {{form.password(size=30)}}
+                    {{ form.password.label }} <br>
+                    {{ form.password(size=30) }}
                 </p>
                 <p> 
-                    {{form.submit()}} <br>
+                    {{ form.submit() }} <br>
                 </p>
+            </div>
         </form>
     </div>
 </body>

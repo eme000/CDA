@@ -79,14 +79,13 @@ def show_tables():
 def signup():
     form = SignUpForm()
     error = None
-    
     if form.validate_on_submit():
         username = form.username.data
         password = form.password.data
         hashed_password = generate_password_hash(password)
 
-        test = inter.signup_requette(username, hashed_password)
-        if test == 1:
+        error_user = inter.signup_requette(username, hashed_password)
+        if error_user == 1:
             error = "Ce nom d'utilisateur est déjà pris."
         else:
             return redirect(url_for('home'))
@@ -96,24 +95,19 @@ def signup():
 
 
 
-
-
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = SignUpForm()
     if form.validate_on_submit():
-        
-        print("je suis la ")
         username = form.username.data
         password = form.password.data
         hashed_password = generate_password_hash(password)
-
-        print(username)
-        print(password)
-        print(hashed_password)
-
-        inter.signup_requette(username,hashed_password)
-
-        return redirect(url_for('home'))
+        
+        # Appel à la fonction de connexion
+        if inter.login_requette(username, hashed_password,password):
+            # Si l'authentification réussit, redirigez l'utilisateur vers la page d'accueil
+            return redirect(url_for('home'))
+        else:
+            # Sinon, affichez un message d'erreur ou redirigez vers une page d'erreur
+            flash("Nom d'utilisateur ou mot de passe incorrect.")
     return render_template('login.html', form=form)
