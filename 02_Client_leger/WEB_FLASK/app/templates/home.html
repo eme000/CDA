@@ -15,6 +15,8 @@
         <button onclick="goHome()">Home</button>
         <button onclick="goLogin()">Login</button>
         <button onclick="goSignup()">Signup</button>
+        <button onclick="goLogout()">logout</button> 
+        <h1> -> {{ session['user'] }}!</h1>
     </header>
 
     <section>
@@ -57,6 +59,10 @@
         function goSignup() {
             // Ajouter le code de redirection vers la page de login ici
             window.location.href = "http://127.0.0.1:5000/signup";
+        }
+        function goLogout() {
+            // Ajouter le code de redirection vers la page de login ici
+            window.location.href = "http://127.0.0.1:5000/logout";
         }
     </script>
 

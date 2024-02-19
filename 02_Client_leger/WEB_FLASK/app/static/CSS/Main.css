@@ -37,12 +37,6 @@ section {
 }
 
 
-header {
-    background-color: #f2f2f2;
-    padding: 10px;
-    text-align: left; /* Aligner le texte à gauche */
-}
-
 .column {
     margin: 10px;
     text-align: center; /* Centrer le texte */
