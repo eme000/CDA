@@ -10,17 +10,43 @@ https://github.com/eme000/CDA/blob/main/Procedure/DockerInstall.md
 
 
 
-nous allons maintent deplpoyer 4 conteneur differents :
+## cloner le projet github:
+
+cloner ce github : https://github.com/eme000/CDA
+
+installer tout ce qui se trouve dans le fichier requirements.txt a la racine du projet github
+
+avec cette commande : 'trouver la commande'
+
+
+## nous allons maintent deplpoyer 4 conteneur differents :
 
 
 # 1 et 2 adminer/ my sql 
 
--sur ce lien
+sur ce lien
 
--http://localhost:9000/#!/1/docker/stacks
+http://localhost:9000/#!/1/docker/stacks
 
--en haut a droite clikcer sur "add stack "
+en haut a droite clikcer sur "add stack "
 
--les deux permiers conteneur vous etre deployer sous un stack : https://github.com/eme000/CDA/blob/main/Procedure/stack_bdd_.md.
+les deux permiers conteneurs vous etre deployer sous un stack : https://github.com/eme000/CDA/blob/main/Procedure/stack_bdd_.md.
+
+
+
+#3 image my node red 
+
+dans les conteneur maintenant ajouter my node red
+
+http://localhost:9000/#!/1/docker/containers
+
+https://hub.docker.com/search?q=mynodered
+
+#4 image du serveur web
+
+
+je sais pas encore
+
+
 
 
