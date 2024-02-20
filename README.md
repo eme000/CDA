@@ -60,6 +60,7 @@ https://hub.docker.com/search?q=mynodered
 
 je sais pas encore
 
+#lancer les conteneur et aller sur l'addresse du pi, port 5000
 
 
 
