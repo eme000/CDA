@@ -18,7 +18,7 @@ installer tout ce qui se trouve dans le fichier requirements.txt a la racine du 
 
 
 avec cette commande : # Exemple de commande pour installer les dépendances depuis requirements.txt
-pip install -r requirements.txt
+pip install -r requirements
 
 
 si l'installation de my sql connector ne fonction pas il faut passer par un environement virtuel et reinstaller  :https://github.com/eme000/raspi/blob/main/mysql_connector.md
