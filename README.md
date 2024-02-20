@@ -8,9 +8,12 @@ faire le deploiment du pi avec le boot sur le port usb avec le ssd sata m.2 via 
 deployer en premier docker via ce lien:
 https://github.com/eme000/CDA/blob/main/Procedure/DockerInstall.md
 
+
+
 nous allons maintent deplpoyer 4 conteneur differents :
 
-adminer/ my sql 
+
+# 1 et 2 adminer/ my sql 
 
 -sur ce lien
 
