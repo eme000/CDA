@@ -1,3 +1,6 @@
+
+"
+
 version: '3.1'
 services:
   web:
@@ -16,3 +19,4 @@ services:
     - POSTGRES_DB=postgres
     - POSTGRES_PASSWORD=myodoo
     - POSTGRES_USER=odoo
+"
