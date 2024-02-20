@@ -11,9 +11,13 @@ https://github.com/eme000/CDA/blob/main/Procedure/DockerInstall.md
 nous allons maintent deplpoyer 4 conteneur differents :
 
 adminer/ my sql 
--sur ce lien.
--http://localhost:9000/#!/1/docker/stacks.
--en haut a droite clikcer sur "add stack ".
+
+-sur ce lien
+
+-http://localhost:9000/#!/1/docker/stacks
+
+-en haut a droite clikcer sur "add stack "
+
 -les deux permiers conteneur vous etre deployer sous un stack : https://github.com/eme000/CDA/blob/main/Procedure/stack_bdd_.md.
 
 
