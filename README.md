@@ -63,6 +63,20 @@ https://hub.docker.com/search?q=mynodered
 
 je sais pas encore
 
+
+## 5 lancement serveur web 
+
+assurez vous de renter les bonnes données de connection a la bdd dans  .env 
+``` 02_Client_leger/WEB_FLASK/app/.env ```
+
+lancement dans un environement virtuel :
+
+```
+source myenv/bin/activate
+cd /home/toor/Documents/CDA_GIT_hub/CDA/02_Client_leger/WEB_FLASK/
+python serverWEB.py
+```
+
 #lancer les conteneur et aller sur l'addresse du pi, port 5000
 
 
