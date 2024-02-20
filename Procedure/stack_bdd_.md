@@ -17,7 +17,7 @@ services:
     volumes:
       - mysql-volume:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: votre_mdp root
+      MYSQL_ROOT_PASSWORD: votre_mdp_root
 
   adminer:
     image: adminer
