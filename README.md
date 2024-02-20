@@ -1,17 +1,6 @@
-# CDA
+# mise en route
 
-TP link:
 
-mdp :	Jslpdl50.
+deploiment serveur web sur rasberry pi 4 argon M.2 sata
 
-PLC:
-192.168.0.1
-
-IOT Gateway raspberry
-ssh console ras pi4:
-user: 	pi
-password : 	ft-IOTpi2
-192.168.0.5
-
-TXT controleur:
-192.168.0.10
+cree un 
