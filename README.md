@@ -56,7 +56,8 @@ dans les conteneur maintenant ajouter my node red
 
 http://localhost:9000/#!/1/docker/containers
 
-https://hub.docker.com/search?q=mynodered
+https://hub.docker.com/r/nodered/node-red
+
 
 ## 4 image du serveur web
 
