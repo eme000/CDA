@@ -74,7 +74,7 @@ lancement dans un environement virtuel :
 
 ```
 source myenv/bin/activate
-cd /home/toor/Documents/CDA_GIT_hub/CDA/02_Client_leger/WEB_FLASK/
+/CDA/02_Client_leger/WEB_FLASK/
 python serverWEB.py
 ```
 
