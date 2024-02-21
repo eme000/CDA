@@ -32,7 +32,7 @@ class interface:
         curseur = conn.cursor()
 
         curseur.execute(requete_sql)
-        
+        # requette parametreable       curseur.bindParameter(emplacement, )
         #demander a ERIC J'AI PAS COMPRIS
         # Récupération des résultats
         results = curseur.fetchall()
@@ -75,6 +75,8 @@ class interface:
     
     def getStock(self,emplacement):
         requeteSQL = f"SELECT Couleur FROM GESTION_STOCK WHERE emplacement = '{emplacement}'"
+        # requette parametreable requeteSQL = f"SELECT Couleur FROM GESTION_STOCK WHERE emplacement = ?"
+        
         #   Exécutez la requête
         sortie_requet = self.connection_bdd(requeteSQL)
         couleur=[99]
