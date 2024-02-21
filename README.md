@@ -14,12 +14,18 @@ https://github.com/eme000/CDA/blob/main/Procedure/DockerInstall.md
 
 cloner ce github : https://github.com/eme000/CDA
 
+```
+git clone https://github.com/eme000/CDA
+```
+
+
 installer tout ce qui se trouve dans le fichier requirements.txt a la racine du projet github
 
+```
+cd CDA/02_Client_leger/WEB_FLASK/
 
-avec cette commande : # Exemple de commande pour installer les dépendances depuis requirements.txt
 pip install -r requirements
-
+```
 
 si l'installation de my sql connector ne fonction pas il faut passer par un environement virtuel et reinstaller  :https://github.com/eme000/raspi/blob/main/mysql_connector.md
 
