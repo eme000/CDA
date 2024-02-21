@@ -43,7 +43,8 @@ http://localhost:9000/#!/1/docker/stacks
 
 en haut a droite clikcer sur "add stack "
 
-les deux permiers conteneurs vous etre deployer sous un stack : https://github.com/eme000/CDA/blob/main/Procedure/stack_bdd_.md.
+
+les deux permiers conteneurs vous etre deployer sous un stack  attention modifier le mdp root : https://github.com/eme000/CDA/blob/main/Procedure/stack_bdd_.md.
 
 creee une bdd en code utf8mb4_unicode_ci avec le lien ci dessous :
 
