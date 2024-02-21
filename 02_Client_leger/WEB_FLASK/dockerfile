@@ -1,0 +1,50 @@
+############################################################################################################################
+#Fichier dockerfile, permet de créer un image de l'application
+############################################################################################################################
+
+############################################################################################################################
+# SUR LA MACHINE SOURCE
+############################################################################################################################
+# Pour créer une image docker, avoir docker d'installer sur sont PC, pour savoir si docker est installé faire le terminale : 
+# docker --version
+# Ensuite pour créer une image, faire :
+# docker build --platform linux/arm64 -t testopcuanonsecu .
+# (linux/arm64 : a cause du système d'exploitation Raspberry linux qui ne lis pas les images sans
+# -t : pour donne un nom a l'image )
+# Pour créer une archive de l'image et la déployer sur une autre machine faire :
+# docker save -o testopcuanonsecu.tar testopcuanonsecu
+# Une fois terminer l'image .tar devrait ce retrouver a la même racine que le Dockerfile
+
+############################################################################################################################
+# SUR LA MACHINE CIBLE
+############################################################################################################################
+# Transferez le fichier .tar sur la machine cible une fois le fichier sur la machine, faire :
+# docker load -i chemin/vers/testopcuanonsecu.tar
+#(mettre le bon chemin vers le fichier .tar)
+# Ensuite pour la première mise en service du docker sur la machine faire :
+# docker run -it --platform linux/arm64 -p 8080:8080 --name mon-nom-specifique NOM_DE_L_IMAGE
+# (--platform linux/arm64 : spécifie la plateforme pour le conteneur);
+# (-p 8080:8080 : mappe le port 8080 de l'hôte sur le port 8080 du conteneur.);
+# (--name mon-nom-specifique : attribue le nom spécifique "mon-nom-specifique" au conteneur. Permet de créer un nom spécifique et faciliter le lancement du conteneur)
+# (NOM_DE_L_IMAGE : remplacez cela par le nom de l'image Docker)
+# Pour savoir si l'image à été créé faire :
+# docker ps -a
+# Normalement le conteneur devrait s'afficher
+# Pour lancer démarrer le docker faire :
+# docker start mon-non-spéficique
+# (mon-nom-spéficique = remplacer par le nom du conteneur)
+# Pour savoir si le docker est lancé, faire :
+# docker ps
+
+############################################################################################################################
+############################################################################################################################
+
+FROM python:3.9
+WORKDIR /CDA
+COPY . .
+RUN pip install --no-cache-dir -r requirements.txt
+EXPOSE 5000
+CMD ["python", "serverWEB.py"]
+
+# ~/source_git/CDA-main/CDA/02_Client_leger/WEB_FLASK$ docker image build -t flask_docker .
+# user@uimm:~/source_git/CDA-main/CDA/02_Client_leger/WEB_FLASK$ docker run -p 5000:5000 -d flask_docker
