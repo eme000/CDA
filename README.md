@@ -56,11 +56,11 @@ https://github.com/eme000/CDA/blob/main/01_BDD/
 
 dans les conteneur maintenant ajouter my node red
 
-crée un nouveau conteneur via portainer 
+crée un nouveau conteneur via cmd
 
 dans le lien de l'image mettre 
 ```
-docker pull nodered/node-red
+docker run -it -p 1880:1880 -v myNodeREDdata:/data --name mynodered nodered/node-red
 ```
 https://hub.docker.com/r/nodered/node-red
 
