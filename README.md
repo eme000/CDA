@@ -46,23 +46,22 @@ en haut a droite clikcer sur "add stack "
 
 les deux permiers conteneurs vous etre deployer sous un stack  attention modifier le mdp root : https://github.com/eme000/CDA/blob/main/Procedure/stack_bdd_.md.
 
-creee une bdd en code utf8mb4_unicode_ci avec le lien ci dessous :
+importer une des deux bdd dans le git avec/sans données 
 
-http://0.0.0.0:8080/?server=db&username=root&database=
+les deux export sql se trouve ici:
 
-et inserer l'export de la bdd:
-http://0.0.0.0:8080/?server=db&username=root&db=(nom de votre base de donnée )&sql=
-
-avec l'export qui se trouve ici
-
-https://github.com/eme000/CDA/blob/main/01_BDD/export_bdd.txt
+https://github.com/eme000/CDA/blob/main/01_BDD/
 
 ## 3 image my node red 
 
 dans les conteneur maintenant ajouter my node red
 
-http://localhost:9000/#!/1/docker/containers
+crée un nouveau conteneur via portainer 
 
+dans le lien de l'image mettre 
+```
+docker pull nodered/node-red
+```
 https://hub.docker.com/r/nodered/node-red
 
 
