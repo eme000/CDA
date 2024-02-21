@@ -45,6 +45,7 @@ COPY . .
 RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 5000
 CMD ["python", "serverWEB.py"]
+# cd CDA/02_Client_leger/WEB_FLASK/
 
 # ~/source_git/CDA-main/CDA/02_Client_leger/WEB_FLASK$ docker image build -t flask_docker .
 # user@uimm:~/source_git/CDA-main/CDA/02_Client_leger/WEB_FLASK$ docker run -p 5000:5000 -d flask_docker
