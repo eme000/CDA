@@ -50,7 +50,8 @@ importer une des deux bdd dans le git avec/sans données via le bouton requette 
 
 les deux export sql se trouve ici:
 
-https://github.com/eme000/CDA/blob/main/01_BDD/
+01_BDD/export_bdd_avec_donnees.txt
+01_BDD/export_bdd_sans_donnees.txt
 
 ## 3 image my node red 
 
