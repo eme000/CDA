@@ -1,27 +1,27 @@
 ## Install Docker
 
-- `sudo apt-get remove docker docker-engine docker.io containerd runc` efface l'ancien package docker si existant
-- `sudo apt-get update`
-- `sudo apt-get install ca-certificates curl gnupg lsb-release`
-- `curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg`
-- `echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null`
-- `sudo apt-get update`
-- `sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin`
-- `sudo docker --version`
-- `mkdir ~/Documents/DOCKER && cd ~/Documents/DOCKER`
-- `sudo docker run hello-world`
-- `sudo docker images` Vérifier qu'une image container hello-world existe
-- `sudo docker ps -a` Vérifier que le container s'execute bien
-- `sudo docker compose version` Vérifier installation et version de docker compose, si V2+ alors syntaxe `docker compose up -d` au lieu de `docker-compose up -d`en V1
+- ```sudo apt-get remove docker docker-engine docker.io containerd runc``` efface l'ancien package docker si existant
+- ```sudo apt-get update```
+- ```sudo apt-get install ca-certificates curl gnupg lsb-release```
+- ```curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg```
+- ```echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null```
+- ```sudo apt-get update```
+- ```sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin```
+- ```sudo docker --version```
+- ```mkdir ~/Documents/DOCKER && cd ~/Documents/DOCKER```
+- ```sudo docker run hello-world```
+- ```sudo docker images``` Vérifier qu'une image container hello-world existe
+- ```sudo docker ps -a``` Vérifier que le container s'execute bien
+- ```sudo docker compose version``` Vérifier installation et version de docker compose, si V2+ alors syntaxe `docker compose up -d` au lieu de `docker-compose up -d`en V1
 
 [DockerInstall](https://docs.docker.com/engine/install/debian/)
 
 ## Run Docker commands without sudo
 
-- `sudo groupadd docker`
-- `sudo gpasswd -a $USER docker`
+- ```sudo groupadd docker```
+- ```sudo gpasswd -a $USER docker```
 - **LOGOUT fom Linux session to force group membership re-evaluation**
-- `sudo service docker restart`
+- ```sudo service docker restart```
 
 ## Install Portainer
 
@@ -29,9 +29,9 @@
 
 [PortainerAdmin](http://192.168.0.17:9000)
 
-- `docker volume create portainer_data`
-- `docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer:latest`
-- `firefox localhost:9000 &` accès à la page de configuration de Portainer
+- ```docker volume create portainer_data```
+- ```docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer:latest```
+- ```firefox localhost:9000 &``` accès à la page de configuration de Portainer
   - username => admin 
   - password => portainer (the password must be at least 8 characters long) v2.0
   - password => portainer3556 (the password must be at least 12 characters long) v2.16
