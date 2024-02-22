@@ -64,26 +64,32 @@ docker run -it -p 1880:1880 -v myNodeREDdata:/data --name mynodered nodered/node
 ```
 https://hub.docker.com/r/nodered/node-red
 
+importer les fichier .json qui se trouve 
+
+/CDA/04_node_red
+flow.json
+
 
 ## 4 image du serveur web
 
 assurez vous de renter les bonnes données de connection a la bdd dans  .env (notament pour le mdp)
 ```
+cd
 cd CDA/02_Client_leger/WEB_FLASK/app
 nano .env
 ```
-lancer la creation du serveur web en docker 
+lancer la creation du serveur web en docker depuis l'environement virtuel  
 
 ```
 cd
+
 cd CDA/02_Client_leger/WEB_FLASK/
+source myenv/bin/activate
+
 docker image build -t flask_docker .
 docker run -p 5000:5000 -d flask_docker
 ```
 
-
-
-## 5 lancement serveur web 
 
 
 
