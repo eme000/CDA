@@ -1,11 +1,8 @@
--- Adminer 4.8.1 MySQL 8.2.0 dump
 
-SET NAMES utf8;
-SET time_zone = '+00:00';
-SET foreign_key_checks = 0;
-SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
+CREATE DATABASE IF NOT EXISTS bdd_production CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-SET NAMES utf8mb4;
+USE bdd_production;
+
 
 DROP TABLE IF EXISTS `Couleur`;
 CREATE TABLE `Couleur` (
@@ -14,6 +11,10 @@ CREATE TABLE `Couleur` (
   PRIMARY KEY (`ID_COULEUR`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+INSERT INTO `Couleur` (`ID_COULEUR`, `nom_couleur`) VALUES
+(1, 'BLEU'),
+(2, 'ROUGE'),
+(3, 'BLANC');
 
 DROP TABLE IF EXISTS `GESTION_ERREUR`;
 CREATE TABLE `GESTION_ERREUR` (
