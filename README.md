@@ -46,7 +46,7 @@ en haut a droite clikcer sur "add stack "
 
 les deux permiers conteneurs vous etre deployer sous un stack  attention modifier le mdp root : https://github.com/eme000/CDA/blob/main/Procedure/stack_bdd_.md.
 
-importer une des deux bdd dans le git avec/sans données 
+importer une des deux bdd dans le git avec/sans données via le bouton requette sql. executer deux fois la requette
 
 les deux export sql se trouve ici:
 
