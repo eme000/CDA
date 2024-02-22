@@ -67,24 +67,23 @@ https://hub.docker.com/r/nodered/node-red
 
 ## 4 image du serveur web
 
+assurez vous de renter les bonnes données de connection a la bdd dans  .env (notament pour le mdp)
+```
+cd CDA/02_Client_leger/WEB_FLASK/app
+nano .env
+```
+lancer la creation du serveur web en docker 
 
-je sais pas encore
+```
+cd
+cd CDA/02_Client_leger/WEB_FLASK/
+docker image build -t flask_docker .
+docker run -p 5000:5000 -d flask_docker
+```
+
 
 
 ## 5 lancement serveur web 
-
-assurez vous de renter les bonnes données de connection a la bdd dans  .env 
-``` 02_Client_leger/WEB_FLASK/app/.env ```
-
-lancement dans un environement virtuel :
-
-```
-source myenv/bin/activate
-/CDA/02_Client_leger/WEB_FLASK/
-python serverWEB.py
-```
-
-#lancer les conteneur et aller sur l'addresse du pi, port 5000
 
 
 
