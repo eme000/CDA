@@ -18,9 +18,11 @@ sudo apt-get update
  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
  
  sudo docker --version
-```
+
  
- mkdir ~/Documents/DOCKER &&  ~/Documents/DOCKER
+ mkdir ~/Documents/DOCKER &&  cd ~/Documents/DOCKER
+
+```
 - `sudo docker run hello-world`
 - `sudo docker images` Vérifier qu'une image container hello-world existe
 - `sudo docker ps -a` Vérifier que le container s'execute bien
