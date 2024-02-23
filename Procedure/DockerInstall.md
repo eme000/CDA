@@ -20,7 +20,8 @@ sudo apt-get update
  sudo docker --version
 
  
- mkdir ~/Documents/DOCKER &&  cd ~/Documents/DOCKER
+ mkdir ~/Documents/DOCKER &&
+cd ~/Documents/DOCKER
 
 ```
 - `sudo docker run hello-world`
