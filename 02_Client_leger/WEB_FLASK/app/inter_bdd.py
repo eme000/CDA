@@ -52,6 +52,7 @@ class interface:
         # ne fonctionne pas sans le F demander a ERIC 
         requeteSQL = f"SELECT `VALEUR_RELEVE` FROM `{nom_table}` ORDER BY `ID_RELEVE` DESC LIMIT 1"
         #   Exécutez la requête
+        sortie_requet = 0.0
         sortie_requet = self.connection_bdd(requeteSQL)
         # Traitement des résultats
         VALEUR_DE_SORTIE = 0.0
@@ -99,13 +100,15 @@ class interface:
     def getDate_OF(self):
         requeteSQL = "SELECT `DATE_OF` FROM `Ordre_de_fabrication` ORDER BY `ID_OF` DESC LIMIT 1"
         sortie_requet = self.connection_bdd(requeteSQL)
+        date_of = None  # Initialisation de date_of à None
         for row in sortie_requet:
-            date_of=row[0]
+            date_of = row[0]
         return date_of
 
     def getCouleur_OF(self):
         requeteSQL = "SELECT `COULEUR_PRODUIT` FROM `Ordre_de_fabrication` ORDER BY `ID_OF` DESC LIMIT 1"
         sortie_requet = self.connection_bdd(requeteSQL)
+        couleur = None
         for row in sortie_requet:
             couleur=row[0]
         print(couleur)
