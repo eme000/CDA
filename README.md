@@ -21,14 +21,15 @@ git clone https://github.com/eme000/CDA
 
 installer tout ce qui se trouve dans le fichier requirements.txt a la racine du projet github
 
+si l'installation de my sql connector ne fonction pas il faut passer par un environement virtuel et reinstaller  :https://github.com/eme000/raspi/blob/main/mysql_connector.md
 
 ```
 cd CDA/02_Client_leger/WEB_FLASK/
 
-pip install -r requirements
+pip install -r requirements.txt
 ```
 
-si l'installation de my sql connector ne fonction pas il faut passer par un environement virtuel et reinstaller  :https://github.com/eme000/raspi/blob/main/mysql_connector.md
+
 
 modifier le login/ mdp de la bdd dans le fichier .env qui se trouve ici :
 ```
@@ -50,13 +51,26 @@ en haut a droite clikcer sur "add stack "
 
 les deux permiers conteneurs vous etre deployer sous un stack  attention modifier le mdp root : https://github.com/eme000/CDA/blob/main/Procedure/stack_bdd_.md.
 
-importer une des deux bdd dans le git avec/sans données via le bouton requette sql. executer deux fois la requette
+cree une base de données via cette requette sur adminer :
+
+[adminer:](http://0.0.0.0:8080/?server=db&username=root&sql=)
+
+```
+CREATE DATABASE IF NOT EXISTS bdd_production CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
+
+importer une des deux bdd sur adminer:
+
+avec/sans données via le bouton requette sql.
+
+[adminer:]([http://0.0.0.0:8080/?server=db&username=root&sql=](http://0.0.0.0:8080/?server=db&username=root&db=bdd_production&sql=))
 
 les deux export sql se trouve ici:
 
 [export_bdd_sans_donnees.txt](https://github.com/eme000/CDA/blob/main/01_BDD/export_bdd_sans_donnees.txt)
 
 [export_bdd_avec_donnees.txt](https://github.com/eme000/CDA/blob/main/01_BDD/export_bdd_avec_donnees.txt)
+
 
 ## 3 image my node red 
 
