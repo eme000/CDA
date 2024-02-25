@@ -50,7 +50,8 @@ pip install -r requirements.txt
 modifier le login/ mdp de la bdd dans le fichier .env qui se trouve ici :
 ```
 cd 
-cd CDA/02_Client_leger/WEB_FLASK/app/.env
+cd CDA/02_Client_leger/WEB_FLASK/app/
+nano .env
 ```
 
 # nous allons maintent deplpoyer 4 conteneur differents :
