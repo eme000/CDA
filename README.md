@@ -3,7 +3,7 @@
 
 deploiment du serveur web sur un rasberry pi 4 argon M.2 sata
 
-faire le deploiment du pi avec le boot sur le port usb avec le ssd sata m.2 via ce lien :https://github.com/eme000/raspi/blob/main/Installation%20pour%20Raspberry%20Pi%20avec%20Boot%20sur%20USB.md
+faire le deploiment du pi avec le boot sur le port usb avec le ssd sata m.2 via ce [lien.](https://github.com/eme000/raspi/blob/main/Installation%20pour%20Raspberry%20Pi%20avec%20Boot%20sur%20USB.md)
 
 # ventilateur du boitier argon a 100%
 ```
@@ -131,6 +131,9 @@ docker image build -t flask_docker .
 docker run -p 5000:5000 -d flask_docker
 ```
 
+# verification
+
+[list_des_conteneurs](http://localhost:9000/#!/2/docker/containers)
 
 
-
+[site_web](http://0.0.0.0:5000/)
