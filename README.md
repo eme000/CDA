@@ -15,9 +15,13 @@ argonone-config
 ```
 
 config :
+
 -1
+
 -Y
+
 -1
+
 -0
 
 
@@ -61,7 +65,7 @@ nano .env
 
 sur ce lien
 
-http://localhost:9000/#!/1/docker/stacks
+[stacks](http://localhost:9000/#!/2/docker/stacks)
 
 en haut a droite clikcer sur "add stack "
 
