@@ -80,7 +80,7 @@ cree une base de données via cette requette sur adminer :
 CREATE DATABASE IF NOT EXISTS bdd_production CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ```
 
-importer une des deux bdd sur adminer:
+[importer une des deux bdd sur adminer:](http://0.0.0.0:8080/?server=db&username=root&db=bdd_production&sql=)
 
 avec/sans données via le bouton requette sql.
 
