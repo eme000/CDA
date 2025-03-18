@@ -1,47 +1,39 @@
-# mise en route
+# Mise en route
 
+## Déploiement du serveur web sur un Raspberry Pi 4 Argon M.2 SATA
 
-deploiment du serveur web sur un rasberry pi 4 argon M.2 sata
+Effectuer le déploiement du Raspberry Pi avec le boot sur le port USB en utilisant un SSD SATA M.2 via ce [lien](https://github.com/eme000/raspi/blob/main/Installation%20pour%20Raspberry%20Pi%20avec%20Boot%20sur%20USB.md).
 
-faire le deploiment du pi avec le boot sur le port usb avec le ssd sata m.2 via ce [lien.](https://github.com/eme000/raspi/blob/main/Installation%20pour%20Raspberry%20Pi%20avec%20Boot%20sur%20USB.md)
+## Ventilateur du boîtier Argon à 100%
 
-# ventilateur du boitier argon a 100%
 ```
-
 curl https://download.argon40.com/argon1.sh | bash
 
 argonone-config
-
 ```
 
-config :
+Configuration :
 
--1
+- 1
+- Y
+- 1
+- 0
 
--Y
+## Déployer Docker en premier via ce lien :
 
--1
+[Installation de Docker](https://github.com/eme000/CDA/blob/main/Procedure/DockerInstall.md)
 
--0
+## Cloner le projet GitHub
 
-
-# deployer en premier docker via ce lien:
-https://github.com/eme000/CDA/blob/main/Procedure/DockerInstall.md
-
-
-
-# Cloner le projet github:
-
-cloner ce github : https://github.com/eme000/CDA
+Cloner le dépôt GitHub suivant :
 
 ```
 git clone https://github.com/eme000/CDA
 ```
 
+Installer toutes les dépendances listées dans le fichier `requirements.txt` à la racine du projet GitHub.
 
-installer tout ce qui se trouve dans le fichier requirements.txt a la racine du projet github
-
-si l'installation de my sql connector ne fonction pas il faut passer par un environement virtuel et reinstaller  :https://github.com/eme000/raspi/blob/main/mysql_connector.md
+Si l'installation de MySQL Connector ne fonctionne pas, il faut passer par un environnement virtuel et le réinstaller : [MySQL Connector](https://github.com/eme000/raspi/blob/main/mysql_connector.md).
 
 ```
 cd CDA/02_Client_leger/WEB_FLASK/
@@ -49,81 +41,72 @@ cd CDA/02_Client_leger/WEB_FLASK/
 pip install -r requirements.txt
 ```
 
+Modifier le login/mot de passe de la base de données dans le fichier `.env` qui se trouve ici :
 
-
-modifier le login/ mdp de la bdd dans le fichier .env qui se trouve ici :
 ```
-cd 
 cd CDA/02_Client_leger/WEB_FLASK/app/
 nano .env
 ```
 
-# nous allons maintent deplpoyer 4 conteneur differents :
+## Déploiement de 4 conteneurs différents
 
+### 1 et 2 : Adminer / MySQL
 
-## 1 et 2 adminer/ my sql 
+Accédez au lien suivant :
 
-sur ce lien
+[Stacks](http://localhost:9000/#!/2/docker/stacks)
 
-[stacks](http://localhost:9000/#!/2/docker/stacks)
+En haut à droite, cliquez sur "Add Stack".
 
-en haut a droite clikcer sur "add stack "
+Les deux premiers conteneurs doivent être déployés sous une stack. Attention, modifiez le mot de passe root : [Instructions Stack BDD](https://github.com/eme000/CDA/blob/main/Procedure/stack_bdd_.md).
 
+Créer une base de données via cette requête sur Adminer :
 
-les deux permiers conteneurs vous etre deployer sous un stack  attention modifier le mdp root : https://github.com/eme000/CDA/blob/main/Procedure/stack_bdd_.md.
-
-cree une base de données via cette requette sur adminer :
-
-[adminer:](http://0.0.0.0:8080/?server=db&username=root&sql=)
+[Adminer](http://0.0.0.0:8080/?server=db&username=root&sql=)
 
 ```
 CREATE DATABASE IF NOT EXISTS bdd_production CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ```
 
-[importer une des deux bdd sur adminer:](http://0.0.0.0:8080/?server=db&username=root&db=bdd_production&sql=)
+[Importer une des deux bases de données sur Adminer](http://0.0.0.0:8080/?server=db&username=root&db=bdd_production&sql=)
 
-avec/sans données via le bouton requette sql.
+Importer les données via le bouton "Requête SQL".
 
-[adminer:]([http://0.0.0.0:8080/?server=db&username=root&sql=](http://0.0.0.0:8080/?server=db&username=root&db=bdd_production&sql=))
+Les fichiers d'export SQL se trouvent ici :
 
-les deux export sql se trouve ici:
+- [Export BDD sans données](https://github.com/eme000/CDA/blob/main/01_BDD/export_bdd_sans_donnees.txt)
+- [Export BDD avec données](https://github.com/eme000/CDA/blob/main/01_BDD/export_bdd_avec_donnees.txt)
 
-[export_bdd_sans_donnees.txt](https://github.com/eme000/CDA/blob/main/01_BDD/export_bdd_sans_donnees.txt)
+### 3 : Image My Node-RED
 
-[export_bdd_avec_donnees.txt](https://github.com/eme000/CDA/blob/main/01_BDD/export_bdd_avec_donnees.txt)
+Ajouter le conteneur My Node-RED.
 
+Créer un nouveau conteneur via la commande suivante :
 
-## 3 image my node red 
-
-dans les conteneur maintenant ajouter my node red
-
-crée un nouveau conteneur via cmd
-
-dans le lien de l'image mettre 
 ```
 docker run -it -p 1880:1880 -v myNodeREDdata:/data --name mynodered nodered/node-red
 ```
-https://hub.docker.com/r/nodered/node-red
 
-importer les fichier .json qui se trouve 
+[Docker Hub - Node-RED](https://hub.docker.com/r/nodered/node-red)
 
-/CDA/04_node_red
-flow.json
+Importer les fichiers `.json` qui se trouvent dans :
 
-
-## 4 image du serveur web
-
-assurez vous de renter les bonnes données de connection a la bdd dans  .env (notament pour le mdp)
 ```
-cd
+CDA/04_node_red/flow.json
+```
+
+### 4 : Image du serveur web
+
+Assurez-vous d'entrer les bonnes informations de connexion à la base de données dans le fichier `.env` (notamment pour le mot de passe) :
+
+```
 cd CDA/02_Client_leger/WEB_FLASK/app
 nano .env
 ```
-lancer la creation du serveur web en docker depuis l'environement virtuel  
+
+Lancer la création du serveur web en Docker depuis l'environnement virtuel :
 
 ```
-cd
-
 cd CDA/02_Client_leger/WEB_FLASK/
 source myenv/bin/activate
 
@@ -131,9 +114,8 @@ docker image build -t flask_docker .
 docker run -p 5000:5000 -d flask_docker
 ```
 
-# verification
+## Vérification
 
-[list_des_conteneurs](http://localhost:9000/#!/2/docker/containers)
+- [Liste des conteneurs](http://localhost:9000/#!/2/docker/containers)
+- [Site Web](http://0.0.0.0:5000/)
 
-
-[site_web](http://0.0.0.0:5000/)
